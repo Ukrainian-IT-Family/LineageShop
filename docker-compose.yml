@@ -1,0 +1,10 @@
+version: '3'
+services:
+  lineage_fe:
+    container_name: lineage_fe
+    image: uitf/lineage_fe
+    build:
+      context: ./client
+      dockerfile: ../client.Dockerfile
+    ports:
+      - "8082:80"

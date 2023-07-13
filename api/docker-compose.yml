@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  app:
+  lin-app:
     build:
       args:
         user: www
@@ -18,13 +18,14 @@ services:
       COMPOSER_MEMORY_LIMIT: 2G
       XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
       PHP_IDE_CONFIG: serverName=${XDEBUG_STORM_SERVER_NAME}
-
-  db:
+    networks:
+      - lineage
+  lin-db:
     image: mysql:5.7
     container_name: laravel-db
     restart: unless-stopped
     ports:
-      - "3306:3306"
+      - "3306"
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -35,8 +36,9 @@ services:
     volumes:
       - ./Docker/mysql/my.cnf:/etc/mysql/my.cnf
       - ./Docker/mysql/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
-
-  nginx:
+    networks:
+      - lineage
+  lin-nginx:
     image: nginx:alpine
     container_name: laravel-nginx
     restart: unless-stopped
@@ -45,13 +47,21 @@ services:
     volumes:
       - ./:/var/www
       - ./Docker/nginx/conf.d/:/etc/nginx/conf.d/
-
-  beanstalk:
+    networks:
+      - lineage
+  lin-beanstalk:
     image: schickling/beanstalkd:latest
     container_name: laravel-beanstalk
     ports:
-      - 11300:11300
-
-  redis:
+      - 11300
+    networks:
+      - lineage
+  lin-redis:
     image: redis:5
     container_name: laravel-redis
+    networks:
+      - lineage
+
+networks:
+  lineage:
+    name: lineage
