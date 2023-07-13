@@ -1,7 +1,7 @@
 <template>
   <div class="param-item mt-4">
     <h5 class="param-title unique-font">
-      Способ оплаты
+      {{ $t('walletType.paymentMethod') }}
     </h5>
     <BDropdown
       variant="light"
@@ -40,7 +40,7 @@ export default {
     return {
       selectedWalletType: {
         id: null,
-        name: 'Выберите тип оплаты'
+        name: this.$t('walletType.paymentChoose')
       }
     };
   },

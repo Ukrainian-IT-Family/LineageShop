@@ -2,12 +2,12 @@
   <BTableSimple hover>
     <BThead class="border-bottom pb-3">
       <BTr>
-        <BTh class="font-weight-bold">Дата</BTh>
-        <BTh class="font-weight-bold">Заказ</BTh>
-        <BTh class="font-weight-bold">Описание</BTh>
-        <BTh class="font-weight-bold">Продавец</BTh>
-        <BTh class="font-weight-bold">Статус</BTh>
-        <BTh class="font-weight-bold text-right">Сумма</BTh>
+        <BTh class="font-weight-bold">{{ $t('myOrder.date') }}</BTh>
+        <BTh class="font-weight-bold">{{ $t('myOrder.order') }}</BTh>
+        <BTh class="font-weight-bold">{{ $t('myOrder.description') }}</BTh>
+        <BTh class="font-weight-bold">{{ $t('myOrder.seller') }}</BTh>
+        <BTh class="font-weight-bold">{{ $t('myOrder.status') }}</BTh>
+        <BTh class="font-weight-bold text-right">{{ $t('myOrder.sum') }}</BTh>
       </BTr>
     </BThead>
     <BTbody>

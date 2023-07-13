@@ -1,14 +1,14 @@
 <template>
   <BContainer>
-    <TitleComponent>Кошельки</TitleComponent>
-    <div v-if="userWalletsIsEmpty">У вас пока нет кошельков</div>
+    <TitleComponent>{{ $t('userWallets.wallets') }}</TitleComponent>
+    <div v-if="userWalletsIsEmpty">{{ $t('userWallets.noWallets') }}</div>
     <div v-else>
       <BCol cols="12" class="pt-3">
         <BTableSimple>
           <BThead class="border-bottom pb-3">
             <BTr>
-              <BTh>Тип карты</BTh>
-              <BTh>Карта</BTh>
+              <BTh>{{ $t('userWallets.cardType') }}</BTh>
+              <BTh>{{ $t('userWallets.card') }}</BTh>
               <BTh> </BTh>
               <BTh> </BTh>
             </BTr>
@@ -28,7 +28,7 @@
       v-b-modal.add-user-wallet
       variant="primary"
       class="shadow-none mt-3 font-weight-bold"
-      >Добавить</BButton
+      >{{ $t('userWallets.add') }}</BButton
     >
     <ModalAddUserWalletComponent
       :optionsUserWallets="optionsUserWallets"

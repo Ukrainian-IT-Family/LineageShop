@@ -30,7 +30,7 @@
     <BTh class="font-weight-bold" :class="`text-${order.status.variant}`">
       {{ order.status.title }}
     </BTh>
-    <BTh class="font-weight-bold text-right">{{ order.price }} ₽</BTh>
+    <BTh class="font-weight-bold text-right">{{ order.price }} $</BTh>
     <ModalDetailsInfoComponent :order="order" />
   </BTr>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-uppercase text-secondary mb-3">
-      Запросы в тех. поддержку
+      {{ $t('adminPanel.supportRequests') }}
     </div>
     <BRow class="align-items-end">
       <div>
@@ -9,12 +9,12 @@
           v-model="supportId"
           size="sm"
           type="number"
-          placeholder="Поиск по ID"
+          :placeholder="$t('adminPanel.searchByID')"
           class="shadow-none"
         />
       </div>
       <div class="d-flex flex-column align-items-center">
-        <span class="text-secondary unique-font">Дата создания</span>
+        <span class="text-secondary unique-font">{{ $t('adminPanel.createdAt') }}</span>
         <div class="d-flex">
           <BFormInput
             type="date"
@@ -32,11 +32,11 @@
         </div>
       </div>
       <div class="d-flex flex-column align-items-center mx-2">
-        <span class="text-secondary unique-font">Статус тикета</span>
+        <span class="text-secondary unique-font">{{ $t('adminPanel.ticketStatus') }}</span>
         <BFormSelect size="sm" v-model="statusId">
           <BFormSelectOption value="null"></BFormSelectOption>
-          <BFormSelectOption value="1">Открыт</BFormSelectOption>
-          <BFormSelectOption value="2">Закрыт</BFormSelectOption>
+          <BFormSelectOption value="1">{{ $t('adminPanel.opened') }}</BFormSelectOption>
+          <BFormSelectOption value="2">{{ $t('adminPanel.closed') }}</BFormSelectOption>
         </BFormSelect>
       </div>
     </BRow>
@@ -45,7 +45,7 @@
       :supports="supports(orderType, orderDirection)"
       @orderType="setOrderType"
     ></SupportAdminPanelTable>
-    <EmptyAdminPanelComponent v-else>записей</EmptyAdminPanelComponent>
+    <EmptyAdminPanelComponent v-else>{{ $t('adminPanel.records') }}</EmptyAdminPanelComponent>
   </div>
 </template>
 

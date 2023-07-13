@@ -8,11 +8,11 @@
     <BTableSimple hover class="mt-3">
       <BThead>
         <BTr>
-          <BTh>Описание</BTh>
+          <BTh>{{ $t('userProfile.description') }}</BTh>
           <BTh v-if="category.hasAvailability" class="text-md-right"
-            >Наличие</BTh
+            >{{ $t('userProfile.stock') }}</BTh
           >
-          <BTh class="text-md-right">Цена</BTh>
+          <BTh class="text-md-right">{{ $t('userProfile.price') }}</BTh>
         </BTr>
       </BThead>
       <BTbody>

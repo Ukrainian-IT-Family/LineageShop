@@ -28,7 +28,7 @@ class AuthController extends ApiController
         AddUserAction $addUserAction,
         UserCreateValidatorRequest $request
     ): JsonResponse {
-        $addUserAction
+        $response = $addUserAction
             ->execute(new AddUserRequest(
                 $request->login,
                 $request->email,
@@ -36,7 +36,7 @@ class AuthController extends ApiController
                 $request->license,
             ));
 
-        return $this->successResponse(['msg' => 'OK']);
+        return $this->successResponse(['id' => $response]);
     }
 
     public function emailVerification(Request $request, EmailVerificationAction $emailVerificationAction): JsonResponse

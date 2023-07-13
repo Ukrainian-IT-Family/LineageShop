@@ -6,13 +6,14 @@ import AuthService from '@/services/auth/AuthService';
 export default {
   [actions.REGISTER_USER]: async ({ dispatch }, registerData) => {
     try {
-      await AuthService.registerUser(registerData);
+      return await AuthService.registerUser(registerData);
     } catch (error) {
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,
         { root: true }
       );
+      return false;
     }
   },
   [actions.VERIFIED_EMAIL]: async ({ dispatch }, verifiedEmailData) => {
@@ -24,9 +25,10 @@ export default {
         error,
         { root: true }
       );
+      return false;
     }
   },
-  [actions.SIGN_IN]: async ({ dispatch }, loginData) => {
+  [actions.SIGN_IN]: async ({ commit, dispatch }, loginData) => {
     try {
       await AuthService.signIn(loginData);
     } catch (error) {
@@ -35,6 +37,7 @@ export default {
         error,
         { root: true }
       );
+      return false;
     }
   },
   [actions.FETCH_LOGGED_USER]: async ({ commit, dispatch }) => {

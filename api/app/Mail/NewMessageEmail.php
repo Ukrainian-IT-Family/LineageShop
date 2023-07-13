@@ -31,7 +31,7 @@ class NewMessageEmail extends Mailable implements ShouldQueue
 
         $this->to($userEmail);
 
-        return $this->subject('У Вас новое сообщение!')
+        return $this->subject('You have a new message!')
             ->view('emails.new-message');
     }
 }

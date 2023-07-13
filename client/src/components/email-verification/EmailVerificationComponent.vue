@@ -1,7 +1,7 @@
 <template>
   <BCol md="4" ld="12">
     <BForm @submit.prevent="onVerifiedEmail">
-      <BFormGroup id="hash-group" label="Проверочный код" label-for="hash">
+      <BFormGroup id="hash-group" :label="$t('emailVerification.code')" label-for="hash">
         <BFormInput
           id="hash-input"
           v-model="$v.verifiedEmailData.hash.$model"
@@ -9,7 +9,7 @@
         ></BFormInput>
       </BFormGroup>
       <BButton type="submit" variant="primary"
-        >Активировать учетную запись</BButton
+        >{{ $t('emailVerification.activate') }}</BButton
       >
     </BForm>
   </BCol>
@@ -64,9 +64,11 @@ export default {
 
     async onVerifiedEmail() {
       try {
-        await this.verifiedEmail(this.verifiedEmailData);
+        const verified = await this.verifiedEmail(this.verifiedEmailData);
 
-        await this.$router.push({ name: 'Auth' });
+        if (verified !== false) {
+          await this.$router.push({name: 'Auth'});
+        }
       } catch (error) {
         this.setErrorNotification(error);
       }

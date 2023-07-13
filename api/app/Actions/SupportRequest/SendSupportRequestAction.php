@@ -6,6 +6,7 @@ namespace App\Actions\SupportRequest;
 
 use App\Actions\SupportRequestMessage\GetSupportRequestResponse;
 use App\Constant\SupportRequestConstant;
+use App\Exceptions\SupportRequest\AuthorizationRequiredException;
 use App\Exceptions\SupportRequest\OrderNumberNotFoundException;
 use App\Models\SupportRequest;
 use App\Repositories\Order\OrderRepositoryInterface;
@@ -25,6 +26,10 @@ final class SendSupportRequestAction
 
     public function execute(SendSupportRequest $request): GetSupportRequestResponse
     {
+        if(!Auth::id()) {
+            throw new AuthorizationRequiredException();
+        }
+
         $newSupportRequest = new SupportRequest();
 
         $newSupportRequest->text = $request->getText();
@@ -33,7 +38,7 @@ final class SendSupportRequestAction
         $newSupportRequest->login = $request->getLogin();
         $newSupportRequest->author_id = Auth::id();
         $newSupportRequest->status = SupportRequestConstant::OPEN;
-        $newSupportRequest->status = $request->getEmail();
+        $newSupportRequest->email = $request->getEmail();
 
         if($request->getOrderId()) {
             $order = $this->orderRepository->getById($request->getOrderId());

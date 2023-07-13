@@ -1,5 +1,5 @@
 <template>
-  <BModal title="Добавить предложение" id="add-product" hide-footer>
+  <BModal :title="$t('form.addOffer')" id="add-product" hide-footer>
     <CategoryPropertyComponent
       v-for="property in properties"
       :key="property.id"
@@ -8,16 +8,16 @@
       @formatFormData="formatFormData"
     />
     <div class="mb-3 col-5 p-0">
-      <div class="fa-xs text-uppercase mb-2">цена для покупателей</div>
+      <div class="fa-xs text-uppercase mb-2">{{ $t('form.priceForBuyers') }}</div>
       <BTableSimple borderless>
         <BTbody>
           <BTr>
-            <BTd class="fa-xs m-0 p-0">Банковская карта</BTd>
-            <BTd class="fa-xs m-0 p-0">2000 ₽</BTd>
+            <BTd class="fa-xs m-0 p-0">{{ $t('form.bankCard') }}</BTd>
+            <BTd class="fa-xs m-0 p-0">2000 $</BTd>
           </BTr>
           <BTr>
-            <BTd class="fa-xs m-0 p-0">Банковская карта</BTd>
-            <BTd class="fa-xs m-0 p-0">2000 ₽</BTd>
+            <BTd class="fa-xs m-0 p-0">{{ $t('form.bankCard') }}</BTd>
+            <BTd class="fa-xs m-0 p-0">2000 $</BTd>
           </BTr>
         </BTbody>
       </BTableSimple>
@@ -28,11 +28,11 @@
         v-model="formData['active']"
         class="shadow-none"
       >
-        Активное
+        {{ $t('form.active') }}
       </BFormCheckbox>
     </div>
     <BButton @click="sendForm()" class="col-12 mb-2" variant="primary"
-      >Сохранить</BButton
+      >{{ $t('form.save') }}</BButton
     >
   </BModal>
 </template>

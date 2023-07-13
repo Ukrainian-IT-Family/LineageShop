@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleComponent>Админ панель</TitleComponent>
+    <TitleComponent>{{ $t('views.adminPanel') }}</TitleComponent>
     <AdminPanelComponent></AdminPanelComponent>
   </div>
 </template>

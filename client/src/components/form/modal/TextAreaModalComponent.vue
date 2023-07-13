@@ -3,7 +3,7 @@
     <label class="fa-xs text-uppercase">{{ property.name }}</label>
     <BFormTextarea
       id="description-input"
-      placeholder="Нужно вписать текст"
+      :placeholder="$t('form.needToEnterText')"
       rows="5"
       class="shadow-none"
     />

@@ -1,5 +1,5 @@
 <template>
-  <div>Авторизация через {{ provider }}</div>
+  <div>{{ $t('views.authBy') }} {{ provider }}</div>
 </template>
 
 <script>

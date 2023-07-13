@@ -22,7 +22,7 @@
     </BTh>
     <BTh class="font-weight-bold text-md-right">
       {{ product.price }}
-      <span class="ml-2">₽</span>
+      <span class="ml-2">$</span>
     </BTh>
   </BTr>
 </template>

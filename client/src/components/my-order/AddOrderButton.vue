@@ -4,7 +4,7 @@
       @click="onAddOrder"
       variant="primary"
       class="w-100 font-weight-bold shadow-none"
-      >Купить
+      >{{ $t('myOrder.buy') }}
     </BButton>
   </div>
 </template>
@@ -56,11 +56,11 @@ export default {
             });
           } else {
             this.setErrorNotification(
-              'Выбранное колличество товара превышает доступное'
+                this.$t('myOrder.selectedQuantity')
             );
           }
         } else {
-          this.setErrorNotification('Выберите тип оплаты');
+          this.setErrorNotification(this.$t('myOrder.choosePaymentType'));
         }
       } catch (error) {
         this.setErrorNotification(error);

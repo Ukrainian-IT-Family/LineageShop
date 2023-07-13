@@ -10,11 +10,11 @@
           size="xs"
         ></BFormRating>
       </div>
-      <a href="#reviews-list"> {{ getCountAllUserRatings }} отзывов </a>
+      <a href="#reviews-list"> {{ getCountAllUserRatings }} {{ $t('chat.reviews') }} </a>
       <div class="text-secondary mt-2">
-        Напишите продавцу
+        {{ $t('chat.writeToTheSeller') }}
         <br />
-        перед оплатой
+        {{ $t('chat.beforePayment') }}
       </div>
     </div>
   </div>

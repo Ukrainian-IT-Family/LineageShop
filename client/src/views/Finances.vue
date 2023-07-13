@@ -3,9 +3,9 @@
     <BRow class="page-title border-0 mb-0">
       <BCol>
         <h1>
-          Финансы
+          {{ $t('financesPage.finance') }}
           <span class="hidden-xs">·</span>
-          <span> {{ financeValue }} ₽ </span>
+          <span> {{ financeValue }} $ </span>
         </h1>
       </BCol>
     </BRow>
@@ -17,17 +17,17 @@
           class="shadow-none"
         >
           <BFormSelectOption value="">
-            Все операции
+            {{ $t('financesPage.allOperations') }}
           </BFormSelectOption>
           <BFormSelectOption
             :value="$getConst('FINANCE_OPERATION_TYPE').ENROLLMENT"
           >
-            Зачисление
+            {{ $t('financesPage.enrollment') }}
           </BFormSelectOption>
           <BFormSelectOption
             :value="$getConst('FINANCE_OPERATION_TYPE').WRITE_OFFS"
           >
-            Списание
+            {{ $t('financesPage.retirement') }}
           </BFormSelectOption>
         </BFormSelect>
       </BCol>
@@ -38,7 +38,7 @@
           variant="primary"
           class="font-weight-bold pl-3 pr-3"
         >
-          Вывести деньги
+          {{ $t('financesPage.withdrawMoney') }}
         </BButton>
       </BCol>
     </BRow>

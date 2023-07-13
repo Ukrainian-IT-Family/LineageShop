@@ -3,14 +3,14 @@
     <span class="text-secondary unique-font">{{ name }}</span>
     <BFormInput
       size="sm"
-      placeholder="от"
+      :placeholder="$t('form.from')"
       class="level-input ml-2 shadow-none"
       v-model="inputValue.betweenMin"
       @input="$emit('sendBetweenValues', inputValue)"
     ></BFormInput>
     <BFormInput
       size="sm"
-      placeholder="до"
+      :placeholder="$t('form.to')"
       class="level-input ml-2 shadow-none"
       v-model="inputValue.betweenMax"
       @input="$emit('sendBetweenValues', inputValue)"

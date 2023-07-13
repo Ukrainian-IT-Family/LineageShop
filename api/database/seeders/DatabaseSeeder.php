@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PropertyDefaultValueSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(PropertyValueSeeder::class);
+        $this->call(QuestionSeeder::class);
     }
 }

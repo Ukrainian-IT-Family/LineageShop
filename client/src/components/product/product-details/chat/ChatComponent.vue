@@ -75,7 +75,7 @@
                   @keyup.ctrl.enter="onAddMessage"
                   v-model="message"
                   rows="3"
-                  placeholder="Написать..."
+                  :placeholder="$t('productDetails.write')"
                   no-resize
                   class="border-0 border-top rounded-0 shadow-none"
                 ></BFormTextarea> </BRow
@@ -162,7 +162,7 @@ export default {
     async onAddMessage() {
       if (!this.chat.id) {
         await this.addChat({ recipientUserId: this.user.id });
-        await this.setSuccessNotification('Чат успешно создан');
+        await this.setSuccessNotification(this.$t('productDetails.chatCreated'));
         await this.getMessageByChatId(this.chat.id);
       }
       await this.addMessage({

@@ -1,7 +1,7 @@
 <template>
   <div>
     <BRow class="text-secondary text-uppercase font-weight-bold fa-xs mb-2">
-      Предложения
+      {{ $t('userProfile.offers') }}
     </BRow>
     <UserOffersByCategory
       v-for="category in categories"

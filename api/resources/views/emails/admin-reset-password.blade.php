@@ -2,9 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Новый пароль</title>
+    <title>New Password</title>
 </head>
 <body>
-    <p>Ваш новый пароль: {{ $password }}</p>
+    <p>Your new password: {{ $password }}</p>
 </body>
 </html>

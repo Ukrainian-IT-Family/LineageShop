@@ -1,18 +1,18 @@
 <template>
   <BModal @hide="closeModal" id="add-finance-operation" hide-footer>
     <template #modal-title>
-      <h2 class="font-weight-bold">Вывод средств</h2>
+      <h2 class="font-weight-bold">{{ $t('finances.withdrawals') }}</h2>
     </template>
     <BForm @submit.prevent="onAddFinanceOperation">
       <BFormGroup>
-        <label class="text-uppercase text-secondary fa-xs">способ оплаты</label>
+        <label class="text-uppercase text-secondary fa-xs">{{ $t('finances.paymentMethodLower') }}</label>
         <BFormSelect
           v-model="addedData.typeId"
           @change="getUserWalletsByWalletType"
           class="shadow-none"
         >
           <BFormSelectOption :value="null">
-            Выберите способ оплаты
+            {{ $t('finances.selectAPaymentMethod') }}
           </BFormSelectOption>
           <BFormSelectOption
             v-for="walletType in walletTypes"
@@ -24,10 +24,10 @@
         </BFormSelect>
       </BFormGroup>
       <BFormGroup v-if="addedData.typeId">
-        <label class="text-uppercase text-secondary fa-xs">кошелек</label>
+        <label class="text-uppercase text-secondary fa-xs">{{ $t('finances.wallet') }}</label>
         <BFormSelect v-model="addedData.walletId" class="shadow-none">
           <BFormSelectOption :value="null">
-            Выберите другой кошелек
+            {{ $t('finances.chooseAnotherWallet') }}
           </BFormSelectOption>
           <BFormSelectOption
             v-for="userWallet in userWallets"
@@ -40,12 +40,12 @@
       </BFormGroup>
       <BFormGroup v-if="isShowAddWallet" class="position-relative">
         <label class="text-uppercase text-secondary fa-xs"
-          >добавить карту</label
+          >{{ $t('finances.addCard') }}</label
         >
         <BFormInput v-model="addedData.info" class="shadow-none"></BFormInput>
       </BFormGroup>
       <BFormGroup v-if="addedData.typeId" class="position-relative">
-        <label class="text-uppercase text-secondary fa-xs">сумма</label>
+        <label class="text-uppercase text-secondary fa-xs">{{ $t('finances.sumLower') }}</label>
         <BFormInput
           v-model="addedData.money"
           type="number"
@@ -53,11 +53,11 @@
         />
         <span
           class="currency-symbol position-absolute font-weight-bold ml-2 text-right"
-          >₽</span
+          >$</span
         >
       </BFormGroup>
       <BFormGroup v-if="addedData.typeId" class="position-relative">
-        <label class="text-uppercase text-secondary fa-xs t">к получению</label>
+        <label class="text-uppercase text-secondary fa-xs t">{{ $t('finances.receive') }}</label>
         <BFormInput
           class="bg-light shadow-none"
           :value="getMoneyWithCommission"
@@ -69,7 +69,7 @@
         >
       </BFormGroup>
       <BButton type="submit" class="col-12 mb-2" variant="primary"
-        >Отправить</BButton
+        >{{ $t('finances.send') }}</BButton
       >
     </BForm>
   </BModal>

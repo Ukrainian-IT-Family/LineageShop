@@ -1,9 +1,9 @@
 <template>
   <BNavbarNav class="ml-auto authorized-menu">
-    <BNavItem :to="{ name: 'MyPurchases' }">Покупки</BNavItem>
-    <BNavItem :to="{ name: 'MySales' }">Продажи</BNavItem>
-    <BNavItem :to="{ name: 'Chat' }">Сообщения</BNavItem>
-    <BNavItem :to="{ name: 'Finances' }">Финансы</BNavItem>
+    <BNavItem :to="{ name: 'MyPurchases' }">{{ $t('mainLayoutBlocks.purchases') }}</BNavItem>
+    <BNavItem :to="{ name: 'MySales' }">{{ $t('mainLayoutBlocks.sales') }}</BNavItem>
+    <BNavItem :to="{ name: 'Chat' }">{{ $t('mainLayoutBlocks.messages') }}</BNavItem>
+    <BNavItem :to="{ name: 'Finances' }">{{ $t('mainLayoutBlocks.finance') }}</BNavItem>
     <BNavItemDropdown right>
       <template #button-content>
         <div class="user-link-photo">
@@ -12,17 +12,13 @@
       </template>
       <BDropdownItem :to="{ name: 'UserSelfProfile' }">
         <span class="user-link-name">{{ this.user.login }}</span>
-        <span class="user-link-desc">Профиль</span>
+        <span class="user-link-desc">{{ $t('mainLayoutBlocks.profile') }}</span>
       </BDropdownItem>
       <BDropdownItem class="border-top" :to="{ name: 'UserSettings' }">
-        Настройки
-      </BDropdownItem>
-      <BDropdownItem class="border-top" href="#">
-        English
-        <img width="18" height="18" alt="" src="@/assets/eng.svg" />
+        {{ $t('mainLayoutBlocks.settings') }}
       </BDropdownItem>
       <BDropdownItem class="border-top" @click="exit()">
-        Выйти
+        {{ $t('mainLayoutBlocks.logOut') }}
       </BDropdownItem>
     </BNavItemDropdown>
   </BNavbarNav>

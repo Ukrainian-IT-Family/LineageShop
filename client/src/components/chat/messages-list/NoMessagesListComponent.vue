@@ -2,8 +2,8 @@
   <div class="p-3 chat-empty">
     <div class="chat-not-selected-info">
       <span class="bookmarks-nonempty">
-        Выберите диалог слева.<br />
-        Уверены, у вас всё получится.
+        {{ $t('chat.selectDialogueOnTheLeft') }}<br />
+        {{ $t('chat.weAreSureYouWillSucceed') }}
       </span>
     </div>
   </div>

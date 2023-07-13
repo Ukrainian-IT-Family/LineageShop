@@ -2,7 +2,7 @@
   <BContainer>
     <BRow class="page-title border-0 mb-0">
       <BCol>
-        <h1>Мои продажи</h1>
+        <h1>{{ $t('mySales.mySales') }}</h1>
       </BCol>
     </BRow>
     <BRow>
@@ -10,7 +10,7 @@
         <BFormInput
           @input="saleId"
           type="text"
-          placeholder="Поиск по ID заказа"
+          :placeholder="$t('mySales.searchByOrderID')"
           v-model="saleId"
           class="shadow-none"
           size="sm"
@@ -20,7 +20,7 @@
         <BFormInput
           @input="customerLogin"
           type="text"
-          placeholder="Поиск по покупателю"
+          :placeholder="$t('mySales.searchByCustomer')"
           v-model="customerLogin"
           class="shadow-none"
           size="sm"
@@ -29,22 +29,22 @@
       <BCol md="3">
         <BFormSelect v-model="saleStatus" size="sm" @change="saleStatus">
           <BFormSelectOption value="">
-            Поиск по статусу
+            {{ $t('mySales.searchByStatus') }}
           </BFormSelectOption>
           <BFormSelectOption :value="$getConst('ORDER_STATUS').CREATED">
-            Создан
+            {{ $t('mySales.created') }}
           </BFormSelectOption>
           <BFormSelectOption :value="$getConst('ORDER_STATUS').CLOSED">
-            Закрыт
+            {{ $t('mySales.closed') }}
           </BFormSelectOption>
           <BFormSelectOption :value="$getConst('ORDER_STATUS').CONFIRMED">
-            Подтвержден
+            {{ $t('mySales.confirmed') }}
           </BFormSelectOption>
         </BFormSelect>
       </BCol>
       <BCol md="3">
         <BButton @click="fetchSalesByCriteria" class="shadow-none" size="sm">
-          Показать
+          {{ $t('mySales.show') }}
         </BButton>
       </BCol>
     </BRow>

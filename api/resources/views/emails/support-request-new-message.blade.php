@@ -6,14 +6,14 @@
 </head>
 <body>
 <div>
-    <h4>Получен ответ на обращение #{{ $supportId }}</h4>
+    <h4>Received a response to the request #{{ $supportId }}</h4>
 </div>
 <div>
-    <h4>Логин отправителя</h4>
+    <h4>Sender login</h4>
     {{ $login }}
 </div>
 <div>
-    <h4>Текст ответа</h4>
+    <h4>Response text</h4>
     {{ $messageText }}
 </div>
 </body>

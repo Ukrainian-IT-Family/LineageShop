@@ -24,7 +24,7 @@ class AdminResetUserPasswordMail extends Mailable
 
     public function build()
     {
-        $subject = 'Новый пароль';
+        $subject = 'New Password';
         $password = $this->password;
 
         return $this

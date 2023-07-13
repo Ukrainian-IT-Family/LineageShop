@@ -9,89 +9,89 @@ class PropertyDefaultValueSeeder extends Seeder
 {
     public function run()
     {
-        $raceId = DB::table('properties')->where('name', '=', 'Раса')->first()->id;
-        $equipmentId = DB::table('properties')->where('name', '=', 'Экипировка')->first()->id;
-        $categoryId = DB::table('properties')->where('name', '=', 'Категория')->first()->id;
-        $rankId = DB::table('properties')->where('name', '=', 'Ранг')->first()->id;
-        $typeId = DB::table('properties')->where('name', '=', 'Тип')->first()->id;
+        $raceId = DB::table('properties')->where('name', '=', 'Race')->first()->id;
+        $equipmentId = DB::table('properties')->where('name', '=', 'Equipment')->first()->id;
+        $categoryId = DB::table('properties')->where('name', '=', 'Category')->first()->id;
+        $rankId = DB::table('properties')->where('name', '=', 'Rank')->first()->id;
+        $typeId = DB::table('properties')->where('name', '=', 'Type')->first()->id;
 
-        $weaponId = DB::table('properties')->where('name', '=', 'Оружие')->first()->id;
-        $armorId = DB::table('properties')->where('name', '=', 'Доспехи')->first()->id;
-        $accessoryId = DB::table('properties')->where('name', '=', 'Аксессуары')->first()->id;
+        $weaponId = DB::table('properties')->where('name', '=', 'Weapon')->first()->id;
+        $armorId = DB::table('properties')->where('name', '=', 'Armor')->first()->id;
+        $accessoryId = DB::table('properties')->where('name', '=', 'Accessories')->first()->id;
 
         // Раса
-        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Люди']);
-        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Эльфы']);
-        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Темные Эльфы']);
-        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Орки']);
-        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Гномы']);
-        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Камаэль']);
-        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Артея']);
+        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Human']);
+        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Elves']);
+        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Dark Elves']);
+        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Orcs']);
+        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Gnomes']);
+        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Kamael']);
+        DB::table('property_default_values')->insert(['property_id' => $raceId, 'value' => 'Arteya']);
 
         // Экипировка
-        DB::table('property_default_values')->insert(['property_id' => $equipmentId, 'value' => 'Голый']);
-        DB::table('property_default_values')->insert(['property_id' => $equipmentId, 'value' => 'Одетый']);
+        DB::table('property_default_values')->insert(['property_id' => $equipmentId, 'value' => 'Naked']);
+        DB::table('property_default_values')->insert(['property_id' => $equipmentId, 'value' => 'Dressed']);
 
         // Категория
-        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Наборы (сеты)']);
-        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Припасы']);
-        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Предметы питомца']);
-        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Брошки, камни Лавианроз']);
-        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Прочее']);
-        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Оружие']);
-        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Доспехи']);
-        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Аксессуары']);
+        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Sets']);
+        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Supplies']);
+        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Pet Items']);
+        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Brooches, Lavianrose stones']);
+        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Other']);
+        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Weapon']);
+        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Armor']);
+        DB::table('property_default_values')->insert(['property_id' => $categoryId, 'value' => 'Accessories']);
 
-        $weaponCategoryId = DB::table('property_default_values')->where('value', '=', 'Оружие')->first()->id;
-        $armorCategoryId = DB::table('property_default_values')->where('value', '=', 'Доспехи')->first()->id;
-        $accessoryCategoryId = DB::table('property_default_values')->where('value', '=', 'Аксессуары')->first()->id;
-        DB::table('properties')->where('name', '=', 'Оружие')->update(['parent_value_id' => $weaponCategoryId]);
-        DB::table('properties')->where('name', '=', 'Доспехи')->update(['parent_value_id' => $armorCategoryId]);
-        DB::table('properties')->where('name', '=', 'Аксессуары')->update(['parent_value_id' => $accessoryCategoryId]);
+        $weaponCategoryId = DB::table('property_default_values')->where('value', '=', 'Weapon')->first()->id;
+        $armorCategoryId = DB::table('property_default_values')->where('value', '=', 'Armor')->first()->id;
+        $accessoryCategoryId = DB::table('property_default_values')->where('value', '=', 'Accessories')->first()->id;
+        DB::table('properties')->where('name', '=', 'Weapon')->update(['parent_value_id' => $weaponCategoryId]);
+        DB::table('properties')->where('name', '=', 'Armor')->update(['parent_value_id' => $armorCategoryId]);
+        DB::table('properties')->where('name', '=', 'Accessories')->update(['parent_value_id' => $accessoryCategoryId]);
 
 
         // Оружие
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Одноручный меч']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Одноручный маг. меч']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Кинжал']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Рапира']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Двуручный меч']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Древний меч']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Парные мечи']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Парные кинжалы']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Одноручное дробящее']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Одноручное маг. дробящее']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Двуручное дробящее']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Двуручное маг. дробящее']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Парное дробящее']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Лук']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Арбалет']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Кастеты']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Древковое']);
-        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Другое оружие']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'One handed sword']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'One-Handed Magic sword']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Dagger']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Rapier']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Two-handed sword']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Ancient sword']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Dual swords']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Dual daggers']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'One-Handed Mace']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'One-Handed Magic Mace']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Two-Handed Mace']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Two-handed magic crushing']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Double crushing']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Bow']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Crossbow']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Knuckles']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Polearm']);
+        DB::table('property_default_values')->insert(['property_id' => $weaponId, 'value' => 'Other weapons']);
 
         // Доспехи
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Шлем']);
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Верхняя часть доспехов']);
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Нижняя часть доспехов']);
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Полный доспех']);
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Перчатки']);
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Обувь']);
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Щит']);
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Символ']);
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Нижнее белье']);
-        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Плащ']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Helmet']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Upper part of the armor']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Lower part of the armor']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Full armor']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Gloves']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Shoes']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Shield']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Symbol']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Underwear']);
+        DB::table('property_default_values')->insert(['property_id' => $armorId, 'value' => 'Cloak']);
 
         // Аксессуары
-        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Кольцо']);
-        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Серьга']);
-        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Ожерелье']);
-        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Пояс']);
-        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Браслет']);
-        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Головной убор']);
+        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Ring']);
+        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Earring']);
+        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Necklace']);
+        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Belt']);
+        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Bracelet']);
+        DB::table('property_default_values')->insert(['property_id' => $accessoryId, 'value' => 'Headdress']);
 
         // Ранг
-        DB::table('property_default_values')->insert(['property_id' => $rankId, 'value' => 'Без ранга']);
+        DB::table('property_default_values')->insert(['property_id' => $rankId, 'value' => 'No rank']);
         DB::table('property_default_values')->insert(['property_id' => $rankId, 'value'  => 'D']);
         DB::table('property_default_values')->insert(['property_id' => $rankId, 'value'  => 'C']);
         DB::table('property_default_values')->insert(['property_id' => $rankId, 'value'  => 'B']);
@@ -104,8 +104,8 @@ class PropertyDefaultValueSeeder extends Seeder
         DB::table('property_default_values')->insert(['property_id' => $rankId, 'value'  => 'R110']);
 
         // Тип
-        DB::table('property_default_values')->insert(['property_id' => $typeId, 'value'  => 'Квесты']);
-        DB::table('property_default_values')->insert(['property_id' => $typeId, 'value'  => 'Фарм олимпа']);
-        DB::table('property_default_values')->insert(['property_id' => $typeId, 'value'  => 'Прочее']);
+        DB::table('property_default_values')->insert(['property_id' => $typeId, 'value'  => 'Quests']);
+        DB::table('property_default_values')->insert(['property_id' => $typeId, 'value'  => 'Farm Olympus']);
+        DB::table('property_default_values')->insert(['property_id' => $typeId, 'value'  => 'Other']);
     }
 }

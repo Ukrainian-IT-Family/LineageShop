@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-uppercase text-secondary mb-3">
-      Тех. поддержка
+      {{ $t('supportChat.support') }}
     </div>
     <BContainer>
       <BRow>
@@ -16,7 +16,7 @@
       <BRow>
         <BCol md="8" v-if="support.status.id !== 2">
           <BFormGroup>
-            <label>Текст</label>
+            <label>{{ $t('supportChat.text') }}</label>
             <BFormTextarea
               v-model="messageText"
               class="shadow-none"
@@ -26,14 +26,14 @@
             @click="sendMessageRequestFront"
             variant="primary"
             class="shadow-none"
-            >Отправить
+            >{{ $t('supportChat.send') }}
           </BButton>
           <BButton
             @click="setSupportRequestStatus(2)"
             variant="outline-danger"
             class="shadow-none ml-3"
           >
-            Закрыть тикет
+            {{ $t('supportChat.closeTicket') }}
           </BButton>
         </BCol>
         <BCol md="8" v-else>
@@ -42,7 +42,7 @@
             variant="primary"
             class="shadow-none"
           >
-            Открыть тикет
+            {{ $t('supportChat.openTicket') }}
           </BButton>
         </BCol>
       </BRow>

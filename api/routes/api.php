@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\QuestionController;
 use App\Http\Controllers\Api\SocialiteAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
@@ -155,8 +156,12 @@ Route::group(
     function () {
         Route::get('/change-verify', [UserController::class, 'updateEmailByUserId']);
         Route::get('/{userId}', [UserController::class, 'getUserById']);
+        Route::post('/bind-email', [UserController::class, 'bindEmail']);
+        Route::patch('/toggle-current-user-email-notification', [UserController::class, 'toggleCurrentUserEmailNotification']);
     }
 );
+
+
 
 Route::group(
     [
@@ -169,9 +174,7 @@ Route::group(
             Route::patch('/change-user-data', [UserController::class, 'changeUserData']);
             Route::get('/orders', [OrderController::class, 'getAllOrders']);
             Route::patch('/orders/change-order-status', [OrderController::class, 'changeOrderStatus']);
-            Route::post('/bind-email', [UserController::class, 'bindEmail']);
             Route::patch('/change-password', [UserController::class, 'changePassword']);
-            Route::patch('/toggle-current-user-email-notification', [UserController::class, 'toggleCurrentUserEmailNotification']);
         });
     }
 );
@@ -205,3 +208,13 @@ Route::prefix('/')->group( function(){
     Route::get('/{providerName}/auth', [SocialiteAuthController::class, 'authUserFromSocialite']);
     Route::get('/{providerName}/callback', [SocialiteAuthController::class, 'addUserFromSocialite']);
 });
+
+Route::group(
+    [
+        'prefix' => '/questions',
+    ],
+    function () {
+        Route::get('/', [QuestionController::class, 'getAll']);
+        Route::get('/{questionSlug}', [QuestionController::class, 'getBySlug']);
+    }
+);

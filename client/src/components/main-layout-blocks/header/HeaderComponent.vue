@@ -3,22 +3,29 @@
     <BContainer class="header-container">
       <BNavbar toggleable="lg">
         <BNavbarBrand to="/" class="logo p-0">
-          <img alt="" class="logo" src="@/assets/logo.svg" />
+          <span class="logo">L-Shop</span>
         </BNavbarBrand>
 
         <BNavbarToggle target="nav-collapse"></BNavbarToggle>
 
         <BCollapse id="nav-collapse" is-nav>
           <BNavbarNav>
-            <BNavItemDropdown text="Помощь" right>
-              <BDropdownItem href="#">Правила</BDropdownItem>
-              <BDropdownItem href="#">Центр помощи</BDropdownItem>
-              <BDropdownItem v-if="this.getLoggedUser">
+            <BNavItemDropdown :text="$t('mainLayoutBlocks.help')" right>
+              <BDropdownItem href="#">{{ $t('mainLayoutBlocks.rules') }}</BDropdownItem>
+              <BDropdownItem href="#">
+                <RouterLink
+                    :to="{ name: 'FAQ' }"
+                    class="text-decoration-none"
+                >
+                  {{ $t('mainLayoutBlocks.helpCenter') }}
+                </RouterLink>
+              </BDropdownItem>
+              <BDropdownItem>
                 <RouterLink
                   :to="{ name: 'SupportRequest' }"
                   class="text-decoration-none"
                 >
-                  Отправить запрос
+                  {{ $t('mainLayoutBlocks.sendRequest') }}
                 </RouterLink>
               </BDropdownItem>
               <BDropdownItem v-if="this.getLoggedUser">
@@ -26,7 +33,7 @@
                   :to="{ name: 'SupportRequestsTable' }"
                   class="text-decoration-none"
                 >
-                  Мои запросы
+                  {{ $t('mainLayoutBlocks.myRequests') }}
                 </RouterLink>
               </BDropdownItem>
             </BNavItemDropdown>

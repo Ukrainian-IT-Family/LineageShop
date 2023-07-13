@@ -3,7 +3,7 @@
     <BCol cols="6">
       <div>
         <h5 class="unique-font">
-          Заплачу
+          {{ $t('productDetails.iWillPay') }}
         </h5>
         <div>
           <BFormInput
@@ -16,7 +16,7 @@
     </BCol>
     <BCol cols="6">
       <div>
-        <h5 class="unique-font">Получу</h5>
+        <h5 class="unique-font">{{ $t('productDetails.iWillReceive') }}</h5>
         <div>
           <BFormInput
             v-model="quantity"

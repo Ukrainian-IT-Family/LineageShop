@@ -1,7 +1,7 @@
 <template>
   <BCol md="4" ld="12">
     <BForm @submit.prevent="onRegister">
-      <BFormGroup id="login-group" label="ЛОГИН/НИК" label-for="login-input">
+      <BFormGroup id="login-group" :label="$t('registration.login')" label-for="login-input">
         <BFormInput
           id="login-input"
           v-model="$v.registerData.login.$model"
@@ -12,17 +12,17 @@
           class="error bg-white text-danger mb-3"
           v-if="!$v.registerData.login.required && clickedLogin"
         >
-          Введите логин / ник
+          {{ $t('registration.enterYourUsername') }}
         </div>
         <div
           class="error bg-white text-danger mb-3"
           v-if="!$v.registerData.login.minLength && clickedLogin"
         >
-          Минимальная длинна лонгина/ника составляет
-          {{ $v.registerData.login.$params.minLength.min }} символа
+          {{ $t('registration.minimumLoginLength') }}
+          {{ $v.registerData.login.$params.minLength.min }} {{ $t('registration.character') }}
         </div>
       </BFormGroup>
-      <BFormGroup id="email-group" label="ПОЧТА" label-for="email-input">
+      <BFormGroup id="email-group" :label="$t('registration.email')" label-for="email-input">
         <BFormInput
           id="email-input"
           type="text"
@@ -34,16 +34,16 @@
           class="error bg-white text-danger mb-3"
           v-if="!$v.registerData.email.required && clickedEmail"
         >
-          Введите Email
+          {{ $t('registration.enterEmail') }}
         </div>
         <div
           class="error bg-white text-danger mb-3"
           v-if="!$v.registerData.email.email && clickedEmail"
         >
-          Вы ввели некорректный Email
+          {{ $t('registration.invalidEmail') }}
         </div>
       </BFormGroup>
-      <BFormGroup id="password-group" label="ПАРОЛЬ" label-for="password-input">
+      <BFormGroup id="password-group" :label="$t('registration.password')" label-for="password-input">
         <BFormInput
           id="password-input"
           type="password"
@@ -55,19 +55,19 @@
           class="error bg-white text-danger mb-3"
           v-if="!$v.registerData.password.required && clickedPassword"
         >
-          Введите пароль
+          {{ $t('registration.enterPassword') }}
         </div>
         <div
           class="error bg-white text-danger mb-3"
           v-if="!$v.registerData.password.minLength && clickedPassword"
         >
-          Пароль должен содержать минимум
-          {{ $v.registerData.password.$params.minLength.min }} символов
+          {{ $t('registration.passwordMustBeAtLeast') }}
+          {{ $v.registerData.password.$params.minLength.min }} {{ $t('registration.characters') }}
         </div>
       </BFormGroup>
       <BFormGroup
         id="confirm-password-group"
-        label="ПОВТОРИТЕ ПАРОЛЬ"
+        :label="$t('registration.repeatPassword')"
         label-for="confirm-password-input"
       >
         <BFormInput
@@ -84,7 +84,7 @@
               clickedConfirmationPassword
           "
         >
-          Повторите пароль
+          {{ $t('registration.repeatPasswordLower') }}
         </div>
         <div
           class="error bg-white text-danger mb-3"
@@ -93,7 +93,7 @@
               clickedConfirmationPassword
           "
         >
-          Пароли должны совпадать
+          {{ $t('registration.passwordsMustMatch') }}
         </div>
       </BFormGroup>
       <BFormCheckbox
@@ -102,9 +102,9 @@
         name="check-button"
         switch
       >
-        Лицензия
+        {{ $t('registration.license') }}
       </BFormCheckbox>
-      <BButton type="submit" variant="primary">Зарегистрироваться</BButton>
+      <BButton type="submit" variant="primary">{{ $t('registration.register') }}</BButton>
     </BForm>
   </BCol>
 </template>
@@ -181,9 +181,11 @@ export default {
     async onRegister() {
       if (!this.validationRegisterForm()) {
         try {
-          await this.registerUser(this.registerData);
+          const isRegisterSuccessful = await this.registerUser(this.registerData);
 
-          await this.$router.push({ name: 'EmailVerification' });
+          if (isRegisterSuccessful !== false) {
+            await this.$router.push({name: 'EmailVerification', query: {id: isRegisterSuccessful.id}});
+          }
         } catch (error) {
           this.setErrorNotification(error);
         }

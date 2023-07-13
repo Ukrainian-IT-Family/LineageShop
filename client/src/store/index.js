@@ -15,6 +15,7 @@ import order from './modules/order';
 import User from './modules/user';
 import UserRating from './modules/user-rating';
 import SupportRequest from './modules/support-request';
+import Faq from './modules/faq';
 
 Vue.use(Vuex);
 
@@ -34,6 +35,7 @@ export default new Vuex.Store({
     order,
     User,
     UserRating,
-    SupportRequest
+    SupportRequest,
+    Faq
   }
 });

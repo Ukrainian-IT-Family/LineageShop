@@ -11,7 +11,7 @@
           product.description ? product.description : product.shortDescription
         "
       >
-        <h5 class="unique-font">Описание</h5>
+        <h5 class="unique-font">{{ $t('productDetails.description') }}</h5>
         <div>
           {{
             product.description ? product.description : product.shortDescription

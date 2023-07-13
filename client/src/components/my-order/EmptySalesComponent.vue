@@ -1,6 +1,6 @@
 <template>
   <BContainer>
-    <h3>У вас нет продаж</h3>
+    <h3>{{ $t('myOrder.youDontHaveSales') }}</h3>
   </BContainer>
 </template>
 

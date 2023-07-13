@@ -38,11 +38,15 @@ export default {
     if (search.length > 0) {
       search = search.toString().toLowerCase();
       products = products.filter(product => {
-        if (product.description) {
-          return product.description.toLowerCase().includes(search);
-        } else {
-          return product.name.toLowerCase().includes(search);
+        if (
+            product.description &&
+            product.description.toLowerCase().includes(search)
+        ) {
+          return true;
+        } else if (product.name.toLowerCase().includes(search)) {
+          return true;
         }
+        return false;
       });
     }
     if (onlyOnline === true) {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleComponent>Изменение пароля</TitleComponent>
+    <TitleComponent>{{ $t('views.changePassword') }}</TitleComponent>
     <ResetPasswordComponent></ResetPasswordComponent>
   </div>
 </template>

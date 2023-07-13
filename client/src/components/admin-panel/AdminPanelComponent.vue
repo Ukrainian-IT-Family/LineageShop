@@ -2,19 +2,19 @@
   <div>
     <BListGroup class="mb-3">
       <BListGroupItem>
-        <RouterLink :to="{ name: 'UserAdminPanel' }">Пользователи</RouterLink>
+        <RouterLink :to="{ name: 'UserAdminPanel' }">{{ $t('adminPanel.users') }}</RouterLink>
       </BListGroupItem>
       <BListGroupItem>
-        <RouterLink :to="{ name: 'OrderAdminPanel' }">Заказы</RouterLink>
+        <RouterLink :to="{ name: 'OrderAdminPanel' }">{{ $t('adminPanel.order') }}</RouterLink>
       </BListGroupItem>
       <BListGroupItem>
         <RouterLink :to="{ name: 'SupportAdminPanel' }">
-          Запросы в тех. поддержку
+          {{ $t('adminPanel.supportRequests') }}
         </RouterLink>
       </BListGroupItem>
       <BListGroupItem>
         <RouterLink :to="{ name: 'FinanceOperationAdminPanel' }">
-          История финансовых операций
+          {{ $t('adminPanel.finHistory') }}
         </RouterLink>
       </BListGroupItem>
     </BListGroup>

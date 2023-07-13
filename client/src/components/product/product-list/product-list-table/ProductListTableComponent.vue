@@ -2,8 +2,8 @@
   <BTableSimple borderless hover>
     <BThead class="border-bottom pb-3">
       <BTr>
-        <BTh class="font-weight-normal">Описание</BTh>
-        <BTh class="font-weight-normal">Продавец</BTh>
+        <BTh class="font-weight-normal">{{ $t('productList.description') }}</BTh>
+        <BTh class="font-weight-normal">{{ $t('productList.seller') }}</BTh>
         <BTh v-if="availableProperties.includes('availability')">
           <BButton
             size="sm"
@@ -11,7 +11,7 @@
             @click="selectSortType('availability')"
             class="font-weight-normal pointer-event shadow-none p-0 m-0"
           >
-            Наличие
+            {{ $t('productList.availability') }}
             <span class="ml-1">
               <FontAwesomeIcon
                 :icon="['fas', selectAvailabilitySortIcon]"
@@ -25,9 +25,9 @@
             @click="selectSortType('price')"
             class="font-weight-normal pointer-event shadow-none p-0 m-0"
           >
-            Цена
+            {{ $t('productList.price') }}
             <span v-if="currentCategory.id === 1">
-              /1кк
+              /1kk
             </span>
             <span class="ml-1">
               <FontAwesomeIcon :icon="['fas', selectPriceSortIcon]" />

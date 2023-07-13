@@ -2,11 +2,11 @@
   <BModal :id="`finance-details${financeOperation.id}`" hide-header hide-footer>
     <BContainer>
       <h2 class="font-weight-bold">
-        Информация об операции
+        {{ $t('adminPanel.operationInformation') }}
       </h2>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Дата запроса
+          {{ $t('adminPanel.requestDate') }}
         </BCol>
         <BCol md="8">
           {{ financeOperation.createdAt | moment('Y.m.D HH:mm') }}
@@ -18,25 +18,25 @@
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Описание
+          {{ $t('adminPanel.description') }}
         </BCol>
         <BCol md="8">
           <span>{{ financeOperation.type.title }}</span>
-          денег
+          {{ $t('adminPanel.money') }}
         </BCol>
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Сумма
+          {{ $t('adminPanel.amount') }}
         </BCol>
         <BCol md="8">
           <span v-if="!financeOperation.type.isEnrollment">-</span>
-          {{ financeOperation.money }} ₽
+          {{ financeOperation.money }} $
         </BCol>
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Статус операции
+          {{ $t('adminPanel.operationStatus') }}
         </BCol>
         <BCol md="8">
           <p>
@@ -49,13 +49,13 @@
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Номер вывода
+          {{ $t('adminPanel.outputNumber') }}
         </BCol>
         <BCol md="8"> #{{ financeOperation.id }} </BCol>
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          <span>Получатель</span>
+          <span>{{ $t('adminPanel.recipient') }}</span>
         </BCol>
         <BCol md="8">
           {{ financeOperation.wallet.info }}
@@ -68,8 +68,8 @@
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          <span v-if="!financeOperation.type.isEnrollment">К получателю</span>
-          <span v-else>У отправителя</span>
+          <span v-if="!financeOperation.type.isEnrollment">{{ $t('adminPanel.toRecipient') }}</span>
+          <span v-else>{{ $t('adminPanel.toSender') }}</span>
         </BCol>
         <BCol md="8">
           <span v-if="financeOperation.type.isEnrollment">
@@ -84,7 +84,7 @@
       <BRow v-if="!isNeedButtonCanceled" class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
           <span>
-            Дата отмены
+            {{ $t('adminPanel.cancellationDate') }}
           </span>
         </BCol>
         <BCol md="8">
@@ -94,7 +94,7 @@
       <BRow v-if="!isNeedButtonCanceled" class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
           <span>
-            Причина отмены
+            {{ $t('adminPanel.reasonForCancellation') }}
           </span>
         </BCol>
         <BCol md="8">

@@ -1,21 +1,21 @@
 <template>
   <div class="collapsible-sidebar-body">
     <dl class="request-details">
-      <dt>Инициатор</dt>
+      <dt>{{ $t('supportChat.initiator') }}</dt>
       <RouterLink
         :to="{ name: 'UserProfile', params: { id: support.authorId } }"
       >
         <dd>{{ support.login }}</dd>
       </RouterLink>
-      <dt>Адрес эл. почты указанный при создании</dt>
+      <dt>{{ $t('supportChat.email') }}</dt>
       <dd>{{ support.email }}</dd>
-      <dt>Создан</dt>
+      <dt>{{ $t('supportChat.created') }}</dt>
       <dd>
         <time data-datetime="date">
           {{ new Date(support.createdAt).toLocaleDateString() }}
         </time>
       </dd>
-      <dt>Последнее обновление</dt>
+      <dt>{{ $t('supportChat.lastUpdate') }}</dt>
       <dd>
         <time data-datetime="date">
           {{ new Date(support.updatedAt).toLocaleDateString() }}
@@ -24,10 +24,10 @@
     </dl>
 
     <dl class="request-details">
-      <dt>ID</dt>
+      <dt>{{ $t('supportChat.id') }}</dt>
       <dd>#{{ support.id }}</dd>
 
-      <dt>Статус</dt>
+      <dt>{{ $t('supportChat.status') }}</dt>
       <dd>
         <span
           class="status-label status-label-answered"
@@ -37,17 +37,17 @@
         </span>
       </dd>
 
-      <dt>Тема</dt>
+      <dt>{{ $t('supportChat.theme') }}</dt>
       <dd>
         {{ support.subject.label }}
       </dd>
 
-      <dt>Ваше имя (логин) на BucksTrade</dt>
+      <dt>{{ $t('supportChat.login') }}</dt>
       <dd>
         {{ support.login }}
       </dd>
 
-      <dt>Номер заказа</dt>
+      <dt>{{ $t('supportChat.orderNumber') }}</dt>
       <dd>
         {{ support.order_id ? support.order_id : '-' }}
       </dd>

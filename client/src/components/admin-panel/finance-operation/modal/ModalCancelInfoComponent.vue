@@ -2,35 +2,35 @@
   <BModal :id="`finance-cancel${financeOperation.id}`" hide-header hide-footer>
     <BContainer>
       <h2 class="font-weight-bold">
-        Информация об отмене
+        {{ $t('adminPanel.informationAboutCancellation') }}
       </h2>
       <BRow class="font-weight-bold text-secondary pt-3">
-        Причина отмены
+        {{ $t('adminPanel.reasonForCancellation') }}
       </BRow>
       <BRow class="pt-3">
-        <BFormTextarea placeholder="Причина отмены" v-model="cancelInfo" />
+        <BFormTextarea :placeholder="$t('adminPanel.reasonForCancellation')" v-model="cancelInfo" />
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Номер вывода
+          {{ $t('adminPanel.outputNumber') }}
         </BCol>
         <BCol md="8"> #{{ financeOperation.id }} </BCol>
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Логин получателя
+          {{ $t('adminPanel.recipientLogin') }}
         </BCol>
         <BCol md="8">{{ financeOperation.user.login }} </BCol>
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          E-mail поулчателя
+          {{ $t('adminPanel.emailAddress') }}
         </BCol>
         <BCol md="8">{{ financeOperation.user.email }} </BCol>
       </BRow>
       <BRow class="pt-3" v-if="financeOperation.wallet.id">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Тип кошелька
+          {{ $t('adminPanel.walletType') }}
         </BCol>
         <BCol md="8">
           {{ financeOperation.wallet.walletType.name }}
@@ -38,18 +38,18 @@
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Сумма
+          {{ $t('adminPanel.amount') }}
         </BCol>
         <BCol md="8">
           <span v-if="!financeOperation.type.isEnrollment">
             -
           </span>
-          {{ financeOperation.money }} ₽
+          {{ financeOperation.money }} $
         </BCol>
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          <span>Кошелёк</span>
+          <span>{{ $t('adminPanel.wallet') }}</span>
         </BCol>
         <BCol md="8">
           {{ financeOperation.wallet.info }}
@@ -67,7 +67,7 @@
             class="font-weight-bold"
             variant="danger"
             @click="onChangeStatusFinanceOperation"
-            >Отменить вывод</BButton
+            >{{ $t('adminPanel.cancelOutput') }}</BButton
           >
         </BCol>
       </BRow>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-uppercase text-secondary mb-3">
-      Запросы в тех. поддержку
+      {{ $t('supportRequestTable.requests') }}
     </div>
     <BRow class="align-items-end">
       <div>
@@ -9,12 +9,12 @@
           v-model="supportId"
           size="sm"
           type="number"
-          placeholder="Поиск по ID"
+          :placeholder="$t('supportRequestTable.searchByID')"
           class="shadow-none"
         />
       </div>
       <div class="d-flex flex-column align-items-center">
-        <span class="text-secondary unique-font">Дата создания</span>
+        <span class="text-secondary unique-font">{{ $t('supportRequestTable.createdDate') }}</span>
         <div class="d-flex">
           <BFormInput
             type="date"
@@ -32,22 +32,22 @@
         </div>
       </div>
       <div class="d-flex flex-column align-items-center mx-2">
-        <span class="text-secondary unique-font">Статус тикета</span>
+        <span class="text-secondary unique-font">{{ $t('supportRequestTable.ticketStatus') }}</span>
         <BFormSelect size="sm" v-model="statusId">
           <BFormSelectOption value=""></BFormSelectOption>
           <BFormSelectOption :value="$getConst('SUPPORT_REQUEST_STATUS').OPEN">
-            Открыт
+            {{ $t('supportRequestTable.opened') }}
           </BFormSelectOption>
           <BFormSelectOption :value="$getConst('SUPPORT_REQUEST_STATUS').CLOSE">
-            Закрыт
+            {{ $t('supportRequestTable.closed') }}
           </BFormSelectOption>
           <BFormSelectOption
             :value="$getConst('SUPPORT_REQUEST_STATUS').UNREAD"
           >
-            Не прочитанно
+            {{ $t('supportRequestTable.unread') }}
           </BFormSelectOption>
           <BFormSelectOption :value="$getConst('SUPPORT_REQUEST_STATUS').READ">
-            Прочитанно
+            {{ $t('supportRequestTable.read') }}
           </BFormSelectOption>
         </BFormSelect>
       </div>
@@ -57,7 +57,7 @@
       :supports="supports(orderType, orderDirection)"
       @orderType="setOrderType"
     />
-    <EmptyTableComponent v-else>записей</EmptyTableComponent>
+    <EmptyTableComponent v-else>{{ $t('supportRequestTable.records') }}</EmptyTableComponent>
   </div>
 </template>
 

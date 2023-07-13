@@ -40,6 +40,7 @@ import {
   faExclamationCircle,
   faExchangeAlt
 } from '@fortawesome/free-solid-svg-icons';
+import i18n from './locales';
 
 const moment = require('moment');
 require('moment/locale/ru');
@@ -87,5 +88,6 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app');

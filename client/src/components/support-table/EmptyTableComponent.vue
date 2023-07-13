@@ -1,6 +1,6 @@
 <template>
   <div class="mt-3">
-    <h4>По вашему запросу <slot /> не найдено</h4>
+    <h4>{{ $t('supportTable.yourSearch') }} <slot /> {{ $t('supportTable.didNotMatch') }}</h4>
   </div>
 </template>
 

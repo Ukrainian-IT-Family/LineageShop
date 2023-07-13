@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleComponent>Админ панель финансовых операций</TitleComponent>
+    <TitleComponent>{{ $t('views.adminPanelFin') }}</TitleComponent>
     <div>
       <FinanceOperationAdminPanelComponent></FinanceOperationAdminPanelComponent>
     </div>

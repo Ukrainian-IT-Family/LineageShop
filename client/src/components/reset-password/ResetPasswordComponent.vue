@@ -3,7 +3,7 @@
     <BForm @submit.prevent="onResetPassword">
       <BFormGroup
         id="password-input"
-        label="Введите новый пароль"
+        :label="$t('resetPassword.new')"
         label-for="password-input"
       >
         <BFormInput
@@ -15,7 +15,7 @@
       </BFormGroup>
       <BFormGroup
         id="confirm-password-input"
-        label="Повторите новый пароль"
+        :label="$t('resetPassword.repeat')"
         label-for="confirm-password-input"
       >
         <BFormInput
@@ -25,7 +25,7 @@
           class="shadow-none"
         ></BFormInput>
       </BFormGroup>
-      <BButton type="submit" variant="primary">Изменить пароль</BButton>
+      <BButton type="submit" variant="primary">{{ $t('resetPassword.change') }}</BButton>
     </BForm>
   </BCol>
 </template>

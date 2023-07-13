@@ -1,11 +1,11 @@
 <template>
   <BModal @hide="closeModal" id="add-user-wallet" hide-footer>
     <template #modal-title>
-      <h2 class="font-weight-bold">Добавить новый кошелек</h2>
+      <h2 class="font-weight-bold">{{ $t('userWallet.addNewWallet') }}</h2>
     </template>
     <BFormGroup>
       <label class="text-uppercase text-secondary fa-xs"
-        >выберите тип кошелька</label
+        >{{ $t('userWallet.selectWalletType') }}</label
       >
       <BFormSelect
         v-model="addForm.walletTypeId"
@@ -14,11 +14,11 @@
       ></BFormSelect>
     </BFormGroup>
     <BFormGroup>
-      <label class="text-uppercase text-secondary fa-xs">добавить карту</label>
+      <label class="text-uppercase text-secondary fa-xs">{{ $t('userWallet.addCard') }}</label>
       <BFormInput v-model="addForm.info" class="shadow-none"></BFormInput>
     </BFormGroup>
     <BButton @click="onAddUserWallet" class="col-12 mb-2" variant="primary"
-      >Добавить</BButton
+      >{{ $t('userWallet.add') }}</BButton
     >
   </BModal>
 </template>
@@ -57,7 +57,7 @@ export default {
     async onAddUserWallet() {
       await this.addUserWallet(this.addForm);
       await this.closeModal();
-      await this.setSuccessNotification('Кошелек добавлен.');
+      await this.setSuccessNotification(this.$t('userWallet.walletAdded'));
     }
   }
 };

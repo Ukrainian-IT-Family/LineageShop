@@ -6,15 +6,15 @@
 </head>
 <body>
 <div>
-    <h4>Логин отправителя</h4>
+    <h4>Sender login</h4>
     {{ $login  }}
 </div>
 <div>
-    <h4>Запрос</h4>
+    <h4>Request</h4>
     {{ $text }}
 </div>
 <div>
-    <h4>Заказ</h4>
+    <h4>Order</h4>
     {{ $orderId }}
 </div>
 </body>

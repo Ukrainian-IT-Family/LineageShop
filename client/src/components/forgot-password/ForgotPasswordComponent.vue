@@ -1,7 +1,7 @@
 <template>
   <BCol md="4" ld="12">
     <BForm @submit.prevent="onForgotPassword">
-      <BFormGroup id="input-group-2" label="ПОЧТА" label-for="input-2">
+      <BFormGroup id="input-group-2" :label="$t('forgotPassword.email')" label-for="input-2">
         <BFormInput
           id="input-2"
           type="text"
@@ -13,16 +13,16 @@
           class="error bg-white text-danger mb-3"
           v-if="!$v.forgotPasswordData.email.required && clickedEmail"
         >
-          Введите Email
+          {{ $t('forgotPassword.enterEmail') }}
         </div>
         <div
           class="error bg-white text-danger mb-3"
           v-if="!$v.forgotPasswordData.email.email && clickedEmail"
         >
-          Вы ввели некорректный Email
+          {{ $t('forgotPassword.youEnteredAnInvalidEmail') }}
         </div>
       </BFormGroup>
-      <BButton type="submit" variant="primary">Восстановить пароль</BButton>
+      <BButton type="submit" variant="primary">{{ $t('forgotPassword.restorePassword') }}</BButton>
     </BForm>
   </BCol>
 </template>

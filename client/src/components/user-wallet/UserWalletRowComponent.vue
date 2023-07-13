@@ -8,7 +8,7 @@
         size="sm"
         variant="danger"
         class="shadow-none text-uppercase font-weight-bold"
-        >удалить</BButton
+        >{{ $t('userWallet.delete') }}</BButton
       >
       <ModalUpdateUserWalletComponent
         :userWallet="userWallet"
@@ -22,7 +22,7 @@
         size="sm"
         variant="primary"
         class="shadow-none text-uppercase font-weight-bold"
-        >изменить</BButton
+        >{{ $t('userWallet.change') }}</BButton
       >
       <ModalDeleteUserWalletComponent
         :userWalletId="userWallet.id"

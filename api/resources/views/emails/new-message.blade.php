@@ -2,9 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>У Вас новое сообщение!</title>
+    <title>You have a new message!</title>
 </head>
 <body>
-Вы получили новое сообщение!
+    You have received a new message!
 </body>
 </html>

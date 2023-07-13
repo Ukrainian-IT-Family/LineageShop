@@ -4,10 +4,10 @@
       <BTableSimple hover>
         <BThead class="border-bottom pb-3">
           <BTr>
-            <BTh>Дата</BTh>
-            <BTh>Описание </BTh>
-            <BTh>Статус </BTh>
-            <BTh class="text-md-right">Сумма</BTh>
+            <BTh>{{ $t('finances.date') }}</BTh>
+            <BTh>{{ $t('finances.description') }} </BTh>
+            <BTh>{{ $t('finances.status') }} </BTh>
+            <BTh class="text-md-right">{{ $t('finances.sum') }}</BTh>
           </BTr>
         </BThead>
         <BTbody>

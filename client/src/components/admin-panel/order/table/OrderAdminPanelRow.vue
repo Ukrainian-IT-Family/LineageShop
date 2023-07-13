@@ -7,17 +7,17 @@
     <BTh>
       <BDropdown
         size="sm"
-        text="Изменить статус заказа"
+        :text="$t('adminPanel.changeOrderStatus')"
         variant="primary"
         :toggle-class="'shadow-none'"
       >
         <BDropdownItem
           @click="onChangeOrderStatus($getConst('ORDER_STATUS').CREATED)"
-          >Создан</BDropdownItem
+          >{{ $t('adminPanel.createdOrder') }}</BDropdownItem
         >
         <BDropdownItem
           @click="onChangeOrderStatus($getConst('ORDER_STATUS').CLOSED)"
-          >Закрыт</BDropdownItem
+          >{{ $t('adminPanel.closed') }}</BDropdownItem
         >
       </BDropdown>
     </BTh>
@@ -63,7 +63,7 @@ export default {
 
       try {
         await this.changeOrderStatus(this.changeOrderStatusData);
-        await this.setSuccessNotification('Данные заказа изменены');
+        await this.setSuccessNotification(this.$t('adminPanel.orderDataChanged'));
       } catch (error) {
         this.setErrorNotification(error);
       }

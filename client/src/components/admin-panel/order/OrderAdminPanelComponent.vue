@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-uppercase text-secondary mb-3">
-      заказы
+      {{ $t('adminPanel.orders') }}
     </div>
     <BRow>
       <BCol md="2">
@@ -9,7 +9,7 @@
           v-model="orderId"
           @input="inputId"
           type="number"
-          placeholder="Поиск по ID"
+          :placeholder="$t('adminPanel.searchByID')"
           class="shadow-none"
         ></BFormInput>
       </BCol>
@@ -18,7 +18,7 @@
           v-model="userCustomerLogin"
           @input="inputUserLogin"
           type="text"
-          placeholder="Поиск по покупателю"
+          :placeholder="$t('adminPanel.searchByUser')"
           class="shadow-none"
         ></BFormInput>
       </BCol>
@@ -27,13 +27,13 @@
           v-model="userSellerLogin"
           @input="inputUserLogin"
           type="text"
-          placeholder="Поиск по продавцу"
+          :placeholder="$t('adminPanel.searchBySeller')"
           class="shadow-none"
         ></BFormInput>
       </BCol>
       <BCol md="2">
         <BButton @click="onSetOrderByCriteria" class="shadow-none">
-          Поиск
+          {{ $t('adminPanel.Search') }}
         </BButton>
       </BCol>
     </BRow>
@@ -41,7 +41,7 @@
       v-if="isSetOrders"
       :orders="orders"
     ></OrderAdminPanelTable>
-    <EmptyAdminPanelComponent v-else>заказов</EmptyAdminPanelComponent>
+    <EmptyAdminPanelComponent v-else>{{ $t('adminPanel.orderCount') }}</EmptyAdminPanelComponent>
   </div>
 </template>
 

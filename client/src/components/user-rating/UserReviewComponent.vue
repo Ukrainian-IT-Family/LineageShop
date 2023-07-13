@@ -13,7 +13,7 @@
           </div>
           <div class="reviews-item-details text-secondary font-weight-bold">
             {{ userRating.userCustomer.login }}
-            {{ userRating.order.productPrice }} ₽
+            {{ userRating.order.productPrice }} $
           </div>
         </BRow>
         <BRow>

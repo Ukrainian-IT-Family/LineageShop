@@ -34,6 +34,8 @@ import SupportChatAdmin from '@/views/SupportChatAdmin';
 import SupportRequestTable from '@/views/SupportRequestTable';
 import SupportChatComponent from '@/components/support-chat/SupportChatComponent';
 import SocialiteAuth from '@/views/SocialiteAuth';
+import FAQ from '@/views/FAQ';
+import FAQDetail from '@/views/FAQDetail';
 
 Vue.use(VueRouter);
 
@@ -219,6 +221,16 @@ const routes = [
         path: '/account/email',
         name: 'BindEmail',
         component: BindEmail
+      },
+      {
+        path: '/faq',
+        name: 'FAQ',
+        component: FAQ
+      },
+      {
+        path: '/faq/:slug',
+        name: 'FAQDetail',
+        component: FAQDetail
       },
       {
         path: '/',

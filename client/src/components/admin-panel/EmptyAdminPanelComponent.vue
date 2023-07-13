@@ -1,6 +1,6 @@
 <template>
   <div class="mt-3">
-    <h4>По вашему запросу <slot></slot> не найдено</h4>
+    <h4>{{ $t('adminPanel.atYourRequest') }} <slot></slot> {{ $t('adminPanel.notFound') }}</h4>
   </div>
 </template>
 

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <TitleComponent>Ошибка 404</TitleComponent>
+    <TitleComponent>{{ $t('views.notFound') }}</TitleComponent>
     <div>
-      Страница не найдена, вернуться на
-      <RouterLink :to="{ name: 'Index' }">главную</RouterLink>.
+      {{ $t('views.pageNotFound') }}
+      <RouterLink :to="{ name: 'Index' }">{{ $t('views.mainPage') }}</RouterLink>.
     </div>
   </div>
 </template>

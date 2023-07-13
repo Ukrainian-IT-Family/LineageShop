@@ -1,7 +1,7 @@
 <template>
   <div class="mb-4 mt-4">
     <h5 class="unique-font">
-      Имя персонажа
+      {{ $t('productDetails.characterName') }}
     </h5>
     <div>
       <BFormInput

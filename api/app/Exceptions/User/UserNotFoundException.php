@@ -8,7 +8,7 @@ use App\Exceptions\BaseException;
 
 final class UserNotFoundException extends BaseException
 {
-    public function __construct($message = 'User not found', $code = 404, Throwable $previous = null)
+    public function __construct($message = 'User not found', $code = 400, Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }

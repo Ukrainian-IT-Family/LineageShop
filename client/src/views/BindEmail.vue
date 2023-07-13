@@ -1,11 +1,11 @@
 <template>
   <div class="m-3 m-md-0">
-    <TitleComponent>Изменение почту</TitleComponent>
+    <TitleComponent>{{ $t('bindEmail.changeEmail') }}</TitleComponent>
     <BContainer>
       <BRow>
         <BCol md="3" ld="12">
           <BFormGroup>
-            <label class="text-uppercase text-secondary fa-xs">почта</label>
+            <label class="text-uppercase text-secondary fa-xs">{{ $t('bindEmail.email') }}</label>
             <BFormInput
               v-model="getLoggedUser.email"
               type="email"
@@ -13,7 +13,7 @@
             ></BFormInput>
           </BFormGroup>
           <BButton @click="onBindEmail" variant="primary" class="shadow-none"
-            >Изменить почту</BButton
+            >{{ $t('bindEmail.emailChange') }}</BButton
           >
         </BCol>
       </BRow>

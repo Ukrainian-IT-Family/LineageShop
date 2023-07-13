@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleComponent>Подтверждение e-mail</TitleComponent>
+    <TitleComponent>{{ $t('views.emailConfirmation') }}</TitleComponent>
     <div>
       <EmailVerificationComponent></EmailVerificationComponent>
     </div>

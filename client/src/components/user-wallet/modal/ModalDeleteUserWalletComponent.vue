@@ -1,17 +1,17 @@
 <template>
   <BModal :id="`delete-user-wallet-${userWalletId}`" hide-header hide-footer>
-    <h4 class="text-center mt-3 mb-5">Удалить этот кошелек?</h4>
+    <h4 class="text-center mt-3 mb-5">{{ $t('userWallet.deleteThisWallet') }}</h4>
     <BButton
       @click="onDeleteUserWallet"
       class="col-12 mb-2 text-uppercase font-weight-bold shadow-none"
       variant="primary"
-      >подтвердить</BButton
+      >{{ $t('userWallet.confirm') }}</BButton
     >
     <BButton
       @click="closeModal"
       class="col-12 mb-2 text-uppercase font-weight-bold shadow-none"
       variant="danger"
-      >отменить</BButton
+      >{{ $t('userWallet.cancel') }}</BButton
     >
   </BModal>
 </template>
@@ -35,7 +35,7 @@ export default {
     }),
     async onDeleteUserWallet() {
       await this.deleteUserWallet(this.userWalletId);
-      await this.setSuccessNotification('Кошелек удален.');
+      await this.setSuccessNotification(this.$t('userWallet.walletDeleted'));
     },
     closeModal() {
       this.$bvModal.hide(`delete-user-wallet-${this.userWalletId}`);

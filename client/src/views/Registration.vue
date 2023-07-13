@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleComponent>Регистрация</TitleComponent>
+    <TitleComponent>{{ $t('views.registration') }}</TitleComponent>
     <RegistrationComponent></RegistrationComponent>
   </div>
 </template>

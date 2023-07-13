@@ -39,12 +39,10 @@ const CONSTANTS = {
   },
   COMMISSION_PERCENT: 2,
   WALLET_TYPES: {
-    QIWI: 1,
-    YOOMONEY: 2,
+    PAYPAL: 1,
+    PAYONEER: 2,
     CARD: 3,
-    WEBMONEY_WMZ: 4,
-    WEBMONEY_WME: 5,
-    BALANCE: 6
+    BALANCE: 4
   },
   PRODUCT: {
     DEFAULT_AVAILABILITY: 1

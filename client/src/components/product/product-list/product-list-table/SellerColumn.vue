@@ -35,7 +35,7 @@
         <span class="rating-count text-secondary ml-1">23</span>
       </BRow>
       <BRow class="seller-info font-weight-bold text-secondary fa-xs"
-        >на сайте 5 лет</BRow
+        >{{ $t('productList.onSite') }}</BRow
       >
     </BCol>
   </BRow>

@@ -2,7 +2,7 @@
   <BContainer>
     <BRow class="page-title border-0 mb-0">
       <BCol>
-        <h1>Мои покупки</h1>
+        <h1>{{ $t('myPurchases.myPurchases') }}</h1>
       </BCol>
     </BRow>
     <BRow>
@@ -10,7 +10,7 @@
         <BFormInput
           @input="purchaseId"
           type="text"
-          placeholder="Поиск по ID заказа"
+          :placeholder="$t('myPurchases.searchByOrderID')"
           v-model="purchaseId"
           class="shadow-none"
           size="sm"
@@ -20,7 +20,7 @@
         <BFormInput
           @input="sellerLogin"
           type="text"
-          placeholder="Поиск по продавцу"
+          :placeholder="$t('myPurchases.searchBySeller')"
           v-model="sellerLogin"
           class="shadow-none"
           size="sm"
@@ -33,16 +33,16 @@
           @change="purchaseStatus"
         >
           <BFormSelectOption value="">
-            Поиск по статусу
+            {{ $t('myPurchases.searchByStatus') }}
           </BFormSelectOption>
           <BFormSelectOption :value="$getConst('ORDER_STATUS').CREATED">
-            Создан
+            {{ $t('myPurchases.created') }}
           </BFormSelectOption>
           <BFormSelectOption :value="$getConst('ORDER_STATUS').CLOSED">
-            Закрыт
+            {{ $t('myPurchases.closed') }}
           </BFormSelectOption>
           <BFormSelectOption :value="$getConst('ORDER_STATUS').CONFIRMED">
-            Подтвержден
+            {{ $t('myPurchases.confirmed') }}
           </BFormSelectOption>
         </BFormSelect>
       </BCol>
@@ -52,7 +52,7 @@
           class="shadow-none"
           size="sm"
         >
-          Показать
+          {{ $t('myPurchases.show') }}
         </BButton>
       </BCol>
     </BRow>

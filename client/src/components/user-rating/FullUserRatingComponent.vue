@@ -1,7 +1,7 @@
 <template>
   <div>
     <BRow class="text-secondary text-uppercase font-weight-bold fa-xs"
-      >Рейтинг продавца</BRow
+      >{{ $t('userRating.rating') }}</BRow
     >
     <BRow class="d-flex justify-content-start">
       <div class="mr-5 ml-3">
@@ -9,7 +9,7 @@
           <span class="font-weight-bold fa-4x pt-1">{{
             getUserRatingAverage
           }}</span>
-          <span class="font-weight-bold pt-5"> из 5</span>
+          <span class="font-weight-bold pt-5"> {{ $t('userRating.five') }}</span>
         </BRow>
       </div>
       <div class="pt-3">
@@ -48,7 +48,7 @@
             <div v-else>{{ getSelectedRating }}</div>
           </template>
           <BDropdownItem @click="setSelectedRating(null)">
-            Все отзывы
+            {{ $t('userRating.allReviews') }}
           </BDropdownItem>
           <BDropdownItem v-for="n in 5" :key="n" @click="setSelectedRating(n)">
             <BFormRating

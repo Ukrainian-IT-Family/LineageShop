@@ -28,7 +28,7 @@ class BindEmail extends Mailable implements ShouldQueue
         $this->to($this->email);
         $verifyRoute = $this->verifyRoute;
 
-        return $this->subject('Заявка на изменение почты')
+        return $this->subject('Email change request')
             ->view('emails.change-email', compact('verifyRoute'));
     }
 }

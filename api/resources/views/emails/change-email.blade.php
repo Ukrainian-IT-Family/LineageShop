@@ -2,9 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Заявка на изменение почты</title>
+    <title>Email change request</title>
 </head>
 <body>
-    <a href="{{ $verifyRoute }}">Нажмите чтобы подтвердить изменение почты</a>
+    <a href="{{ $verifyRoute }}">Click to confirm email change</a>
 </body>
 </html>

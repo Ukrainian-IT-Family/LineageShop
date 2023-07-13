@@ -4,7 +4,7 @@
       <BCol md="6" ld="12">
         <BForm @submit.prevent="onSendSupportRequest">
           <BFormGroup class="shadow-none">
-            <label>Адрес эл. почты</label>
+            <label>{{ $t('supportRequest.email') }}</label>
             <BFormInput
               v-model="$v.sendSupportRequestData.email.$model"
               class="shadow-none"
@@ -14,17 +14,17 @@
               class="error bg-white text-danger mb-2"
               v-if="!$v.sendSupportRequestData.email.required && clickedEmail"
             >
-              Введите email
+              {{ $t('supportRequest.enterEmail') }}
             </div>
             <div
               class="error bg-white text-danger mb-2"
               v-if="!$v.sendSupportRequestData.email.email && clickedEmail"
             >
-              Введенный Email не корректен
+              {{ $t('supportRequest.invalidEmail') }}
             </div>
           </BFormGroup>
           <BFormGroup>
-            <label>Тема</label>
+            <label>{{ $t('supportRequest.subject') }}</label>
             <BFormSelect
               v-model="$v.sendSupportRequestData.subject.$model"
               :options="options"
@@ -32,7 +32,7 @@
             ></BFormSelect>
           </BFormGroup>
           <BFormGroup>
-            <label>Ваше имя (логин)</label>
+            <label>{{ $t('supportRequest.login') }}</label>
             <BFormInput
               v-model="$v.sendSupportRequestData.login.$model"
               class="shadow-none"
@@ -42,11 +42,11 @@
               class="error bg-white text-danger mb-2"
               v-if="!$v.sendSupportRequestData.login.required && clickedLogin"
             >
-              Введите имя (логин)
+              {{ $t('supportRequest.enterLogin') }}
             </div>
           </BFormGroup>
           <BFormGroup>
-            <label>Номер заказа</label>
+            <label>{{ $t('supportRequest.orderNumber') }}</label>
             <BFormInput
               v-model="sendSupportRequestData.orderId"
               class="shadow-none"
@@ -58,11 +58,11 @@
                 !$v.sendSupportRequestData.orderId.integer && clickedOrderId
               "
             >
-              Номер заказа не может содержать буквы
+              {{ $t('supportRequest.cannotContainLetters') }}
             </div>
           </BFormGroup>
           <BFormGroup>
-            <label>Текст</label>
+            <label>{{ $t('supportRequest.text') }}</label>
             <BFormTextarea
               v-model="$v.sendSupportRequestData.text.$model"
               class="shadow-none"
@@ -72,11 +72,11 @@
               class="error bg-white text-danger mb-2"
               v-if="!$v.sendSupportRequestData.text.required && clickedText"
             >
-              Поле "Текст" не заполнено
+              {{ $t('supportRequest.emptyText') }}
             </div>
           </BFormGroup>
           <BButton type="submit" variant="primary" class="shadow-none"
-            >Отправить</BButton
+            >{{ $t('supportRequest.send') }}</BButton
           >
         </BForm>
       </BCol>
@@ -110,51 +110,51 @@ export default {
         { value: 0, text: '-' },
         {
           value: 1,
-          text: 'Я оплатил заказ, но продавец не отвечает мне'
+          text: this.$t('supportRequest.option1')
         },
         {
           value: 2,
-          text: 'Я недоволен выполнением заказа, хочу пожаловаться на продавца'
+          text: this.$t('supportRequest.option2')
         },
         {
           value: 3,
-          text: 'Платёж с моей банковской карты заблокирован'
+          text: this.$t('supportRequest.option3')
         },
         {
           value: 4,
-          text: 'Мой аккаунт BucksTrade заблокирован'
+          text: this.$t('supportRequest.option4')
         },
         {
           value: 5,
-          text: 'Покупатель забыл подтвердить заказ'
+          text: this.$t('supportRequest.option5')
         },
         {
           value: 6,
-          text: 'У меня есть проблемы с покупателем'
+          text: this.$t('supportRequest.option6')
         },
         {
           value: 7,
-          text: 'Пожаловаться на нарушение правил в чате'
+          text: this.$t('supportRequest.option7')
         },
         {
           value: 8,
-          text: 'Пожаловаться на нарушение правил в таблице предложений'
+          text: this.$t('supportRequest.option8')
         },
         {
           value: 9,
-          text: 'Проблема с платежом или выводом денег'
+          text: this.$t('supportRequest.option9')
         },
         {
           value: 10,
-          text: 'Восстановить доступ к аккаунту BucksTrade'
+          text: this.$t('supportRequest.option10')
         },
         {
           value: 11,
-          text: 'Отправить фотографии для отключения задержки'
+          text: this.$t('supportRequest.option11')
         },
         {
           value: 12,
-          text: 'Прочее'
+          text: this.$t('supportRequest.option12')
         }
       ]
     };

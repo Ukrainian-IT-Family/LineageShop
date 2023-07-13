@@ -12,7 +12,7 @@
       product.availability
     }}</BTd>
     <BTd class="text-md-right font-weight-bold"
-      >{{ product.price }} <span>₽</span></BTd
+      >{{ product.price }} <span>$</span></BTd
     >
   </BTr>
 </template>

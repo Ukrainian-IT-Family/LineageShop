@@ -18,7 +18,7 @@
         variant="primary"
         class="shadow-none"
       >
-        Взять в работу
+        {{ $t('adminPanel.takeToWork') }}
       </BButton>
       <BButton
         v-if="financeOperation.status.value === 3"
@@ -30,7 +30,7 @@
         variant="primary"
         class="shadow-none"
       >
-        Выполнено
+        {{ $t('adminPanel.done') }}
       </BButton>
     </BTh>
     <BTh>
@@ -43,7 +43,7 @@
         variant="outline-danger"
         class="shadow-none ml-3"
       >
-        Отменить
+        {{ $t('adminPanel.cancel') }}
       </BButton>
     </BTh>
     <BTh @click="showDetailModal" style="cursor: pointer">

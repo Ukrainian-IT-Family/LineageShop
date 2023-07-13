@@ -5,7 +5,7 @@
         <BFormInput
           @input="inputId"
           type="text"
-          placeholder="Поиск по ID"
+          :placeholder="$t('adminPanel.searchByID')"
           v-model="financeOperationById"
           class="shadow-none"
           size="sm"
@@ -15,7 +15,7 @@
         <BFormInput
           @input="inputUserLogin"
           type="text"
-          placeholder="Поиск по пользователю"
+          :placeholder="$t('adminPanel.searchByUser')"
           v-model="financeOperationByUser"
           class="shadow-none"
           size="sm"
@@ -24,33 +24,33 @@
       <BCol md="3">
         <BFormSelect v-model="financeOperationsByStatusId" size="sm">
           <BFormSelectOption value="">
-            Поиск по статусу
+            {{ $t('adminPanel.searchByStatus') }}
           </BFormSelectOption>
           <BFormSelectOption
             :value="$getConst('FINANCE_OPERATION_STATUS').CREATED"
           >
-            Созданно
+            {{ $t('adminPanel.created') }}
           </BFormSelectOption>
           <BFormSelectOption
             :value="$getConst('FINANCE_OPERATION_STATUS').EXECUTED"
           >
-            Выполненно
+            {{ $t('adminPanel.done') }}
           </BFormSelectOption>
           <BFormSelectOption
             :value="$getConst('FINANCE_OPERATION_STATUS').PENDING"
           >
-            Ожидание
+            {{ $t('adminPanel.waiting') }}
           </BFormSelectOption>
           <BFormSelectOption
             :value="$getConst('FINANCE_OPERATION_STATUS').CANCELED"
           >
-            Отменено
+            {{ $t('adminPanel.canceled') }}
           </BFormSelectOption>
         </BFormSelect>
       </BCol>
       <BCol md="3">
         <BButton @click="onGetFinanceOperationByCriteria" class="shadow-none">
-          Искать
+          {{ $t('adminPanel.search') }}
         </BButton>
       </BCol>
     </BRow>
@@ -58,7 +58,7 @@
       <BCol md="3">
         <BFormDatepicker
           type="text"
-          placeholder="От"
+          :placeholder="$t('adminPanel.from')"
           class="shadow-none w-10"
           size="sm"
           :date-format-options="{
@@ -72,7 +72,7 @@
       <BCol md="3">
         <BFormDatepicker
           type="text"
-          placeholder="До"
+          :placeholder="$t('adminPanel.to')"
           class="shadow-none w-10"
           size="sm"
           :date-format-options="{

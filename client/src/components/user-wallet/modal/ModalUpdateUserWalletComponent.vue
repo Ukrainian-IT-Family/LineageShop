@@ -5,10 +5,10 @@
     hide-footer
   >
     <template #modal-title>
-      <h2 class="font-weight-bold">Изменить кошелек</h2>
+      <h2 class="font-weight-bold">{{ $t('userWallet.changeWallet') }}</h2>
     </template>
     <BFormGroup>
-      <label class="text-uppercase text-secondary fa-xs">Тип кошелька</label>
+      <label class="text-uppercase text-secondary fa-xs">{{ $t('userWallet.walletType') }}</label>
       <BFormSelect
         v-model="updateData.walletTypeId"
         :options="optionsUserWallets"
@@ -16,11 +16,11 @@
       ></BFormSelect>
     </BFormGroup>
     <BFormGroup>
-      <label class="text-uppercase text-secondary fa-xs">изменить карту</label>
+      <label class="text-uppercase text-secondary fa-xs">{{ $t('userWallet.changeTheCard') }}</label>
       <BFormInput v-model="updateData.info" class="shadow-none"></BFormInput>
     </BFormGroup>
     <BButton @click="onUpdateUserWallet" class="col-12 mb-2" variant="primary"
-      >Сохранить</BButton
+      >{{ $t('userWallet.save') }}</BButton
     >
   </BModal>
 </template>
@@ -69,7 +69,7 @@ export default {
     async onUpdateUserWallet() {
       await this.updateUserWallet(this.updateData);
       await this.closeModal();
-      await this.setSuccessNotification('Кошелек изменен.');
+      await this.setSuccessNotification(this.$t('userWallet.walletEdited'));
     }
   }
 };

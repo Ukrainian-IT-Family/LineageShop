@@ -3,7 +3,7 @@
     <BRow>
       <BCol md="7" sm="7">
         <h2 class="font-weight-bold mb-3">
-          Детали заказа
+          {{ $t('myOrder.orderDetails') }}
         </h2>
         <ProductPropertiesListComponent
           v-if="order.product"
@@ -15,13 +15,13 @@
           <BCol cols="12" md="6">
             <div class="mb-3">
               <h5 class="rating-title unique-font">
-                Кол-во
+                {{ $t('myOrder.qty') }}
               </h5>
               <span class="font-weight-bold">{{ order.quantity }}</span>
             </div>
             <div v-if="order.nickname" class="mb-3">
               <h5 class="rating-title unique-font">
-                Имя персонажа
+                {{ $t('myOrder.characterName') }}
               </h5>
               <span class="font-weight-bold">{{ order.nickname }}</span>
             </div>

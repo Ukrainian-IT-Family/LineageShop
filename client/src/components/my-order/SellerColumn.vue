@@ -53,13 +53,13 @@ export default {
       if (this.user.online) {
         return {
           value: 1,
-          text: 'онлайн',
+          text: this.$t('myOrder.online'),
           textVariant: 'text-success'
         };
       }
       return {
         value: 0,
-        text: 'офлайн',
+        text: this.$t('myOrder.offline'),
         textVariant: 'text-secondary'
       };
     }

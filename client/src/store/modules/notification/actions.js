@@ -4,6 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default {
   [actions.SET_ERROR_NOTIFICATION]: async ({ commit }, text) => {
+    if (text.message && text.message === 'User not authorized!') {
+      return;
+    }
     commit(mutations.SET_NOTIFICATION, {
       id: uuidv4(),
       showing: true,

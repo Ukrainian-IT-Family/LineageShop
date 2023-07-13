@@ -4,8 +4,8 @@
       <BTableSimple borderless hover>
         <BThead class="border-bottom pb-3">
           <BTr>
-            <BTh>ID</BTh>
-            <BTh>Логин пользователя</BTh>
+            <BTh>{{ $t('adminPanel.id') }}</BTh>
+            <BTh>{{ $t('adminPanel.login') }}</BTh>
             <BTh class="text-md-left">
               <BButton
                 size="sm"
@@ -13,7 +13,7 @@
                 @click="selectOrderType('type')"
                 class="font-weight-normal pointer-event shadow-none p-0 m-0"
               >
-                Тип
+                {{ $t('adminPanel.type') }}
                 <span class="ml-1">
                   <FontAwesomeIcon :icon="['fas', selectTypeSortIcon]" />
                 </span>
@@ -26,7 +26,7 @@
                 @click="selectOrderType('status')"
                 class="font-weight-normal pointer-event shadow-none p-0 m-0"
               >
-                Статус
+                {{ $t('adminPanel.status') }}
                 <span class="ml-1">
                   <FontAwesomeIcon :icon="['fas', selectStatusSortIcon]" />
                 </span>
@@ -39,7 +39,7 @@
                 @click="selectOrderType('created_at')"
                 class="font-weight-normal pointer-event shadow-none p-0 m-0"
               >
-                Дата
+                {{ $t('adminPanel.date') }}
                 <span class="ml-1">
                   <FontAwesomeIcon :icon="['fas', selectDateSortIcon]" />
                 </span>

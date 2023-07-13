@@ -11,12 +11,12 @@
           size="1x"
           class="back-link-icon"
         />
-        <span class="font-weight-bold">Назад</span>
+        <span class="font-weight-bold">{{ $t('myOrder.back') }}</span>
       </BButton>
     </BCol>
     <BCol md="5" sm="9">
       <h2 class="font-weight-bold mb-3">
-        Подтверждение заказа
+        {{ $t('myOrder.orderConfirmation') }}
       </h2>
       <ProductPropertiesListComponent
         v-if="order.product"
@@ -28,13 +28,13 @@
         <BCol cols="12" md="6">
           <div class="mb-3">
             <h5 class="rating-title unique-font">
-              Кол-во
+              {{ $t('myOrder.qty') }}
             </h5>
             <span class="font-weight-bold">{{ order.quantity }}</span>
           </div>
           <div v-if="order.nickname" class="mb-3">
             <h5 class="rating-title unique-font">
-              Имя персонажа
+              {{ $t('myOrder.characterName') }}
             </h5>
             <span class="font-weight-bold">{{ order.nickname }}</span>
           </div>

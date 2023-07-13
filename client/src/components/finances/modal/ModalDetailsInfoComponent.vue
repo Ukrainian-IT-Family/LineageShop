@@ -2,11 +2,11 @@
   <BModal :id="`finance-details${financeOperation.id}`" hide-header hide-footer>
     <BContainer>
       <h2 class="font-weight-bold">
-        Информация об операции
+        {{ $t('finances.operationInformation') }}
       </h2>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Дата операции
+          {{ $t('finances.dateOfOperation') }}
         </BCol>
         <BCol md="8">
           {{ financeOperation.createdAt | moment('Y.M.D HH:mm') }}
@@ -17,11 +17,11 @@
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Описание
+          {{ $t('finances.description') }}
         </BCol>
         <BCol md="8">
           <span>{{ financeOperation.type.title }}</span>
-          денег #{{ financeOperation.id }}
+          {{ $t('finances.money') }} #{{ financeOperation.id }}
           <div>
             <span class="text-secondary ml-2">
               {{ financeOperation.wallet.info }}
@@ -36,7 +36,7 @@
       </BRow>
       <BRow class="pt-3" v-if="financeOperation.wallet.id">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Способ оплаты
+          {{ $t('finances.paymentMethod') }}
         </BCol>
         <BCol md="8">
           <span>{{ financeOperation.wallet.walletType.name }}</span>
@@ -44,16 +44,16 @@
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Сумма
+          {{ $t('finances.sum') }}
         </BCol>
         <BCol md="8">
           <span v-if="!financeOperation.type.isEnrollment">-</span>
-          {{ financeOperation.money }} ₽
+          {{ financeOperation.money }} $
         </BCol>
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Статус операции
+          {{ $t('finances.operationStatus') }}
         </BCol>
         <BCol md="8">
           <p>
@@ -65,14 +65,14 @@
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          Номер вывода
+          {{ $t('finances.outputNumber') }}
         </BCol>
         <BCol md="8"> #{{ financeOperation.id }} </BCol>
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          <span v-if="!financeOperation.type.isEnrollment">Получатель</span>
-          <span v-else>Отправитель</span>
+          <span v-if="!financeOperation.type.isEnrollment">{{ $t('finances.recipient') }}</span>
+          <span v-else>{{ $t('finances.sender') }}</span>
         </BCol>
         <BCol md="8">
           {{ financeOperation.wallet.info }}
@@ -80,8 +80,8 @@
       </BRow>
       <BRow class="pt-3">
         <BCol md="4" class="font-weight-bold text-secondary">
-          <span v-if="!financeOperation.type.isEnrollment">К получателю</span>
-          <span v-else>У отправителя</span>
+          <span v-if="!financeOperation.type.isEnrollment">{{ $t('finances.toTheRecipient') }}</span>
+          <span v-else>{{ $t('finances.fromTheSender') }}</span>
         </BCol>
         <BCol md="8">
           <span v-if="financeOperation.type.isEnrollment">-</span>
@@ -92,11 +92,11 @@
         </BCol>
       </BRow>
       <BRow class="font-weight-bold text-secondary pt-3" v-if="clickedCancel">
-        <BCol md="8"> Причина отмены <span class="text-danger"> *</span> </BCol>
+        <BCol md="8"> {{ $t('finances.reasonForCancellation') }} <span class="text-danger"> *</span> </BCol>
       </BRow>
       <BRow class="font-weight-bold text-secondary pt-3" v-if="clickedCancel">
         <BCol md="12">
-          <BFormTextarea placeholder="Причина отмены" v-model="cancelInfo" />
+          <BFormTextarea :placeholder="$t('finances.reasonForCancellation')" v-model="cancelInfo" />
         </BCol>
       </BRow>
       <BRow class="pt-3">
@@ -107,7 +107,7 @@
             variant="danger"
             @click="clickedCancel = true"
           >
-            Отменить вывод
+            {{ $t('finances.cancelWithdrawal') }}
           </BButton>
         </BCol>
       </BRow>
@@ -119,7 +119,7 @@
             variant="danger"
             @click="onChangeStatusFinanceOperation"
           >
-            Подтвердить отмену
+            {{ $t('finances.confirmCancellation') }}
           </BButton>
         </BCol>
       </BRow>

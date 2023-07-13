@@ -2,7 +2,7 @@
   <BCol cols="9">
     <BNavbar toggleable="md" variant="white">
       <BNavbarBrand class="d-md-none font-weight-bold" href="#"
-        >Фильтры</BNavbarBrand
+        >{{ $t('productList.filters') }}</BNavbarBrand
       >
       <BNavbarToggle target="nav-collapse-filter"></BNavbarToggle>
       <BCollapse id="nav-collapse-filter" is-nav
@@ -47,7 +47,7 @@
                 class="d-flex align-items-center justify-content-end position-relative"
               >
                 <BFormInput
-                  placeholder="Поиск по описанию"
+                  v-bind:placeholder="$t('productList.searchByDescription')"
                   size="sm"
                   class="shadow-none"
                   v-model="inputSearch"

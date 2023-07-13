@@ -3,7 +3,7 @@
     <BCol md="3">
       <BRow class="chat-title border-bottom">
         <div class="page-header page-header-no-hr p-3 m-auto text-center">
-          Сообщения
+          {{ $t('chat.messages') }}
         </div>
       </BRow>
       <ChatsListComponent :chats="chats"></ChatsListComponent>
@@ -31,7 +31,7 @@
                 v-on:keyup.ctrl.enter="onAddMessage"
                 v-model="message"
                 rows="3"
-                placeholder="Написать..."
+                :placeholder="$t('chat.type')"
                 no-resize
                 class="border-0 border-top rounded-0 shadow-none"
               ></BFormTextarea>

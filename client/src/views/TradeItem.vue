@@ -28,7 +28,7 @@
           <BRow class="mb-3">
             <BCol md="5" ld="6">
               <h1 class="page-header page-header-no-hr ">
-                Ваши предложения
+                {{ $t('tradeItem.yourOffers') }}
               </h1>
             </BCol>
             <BCol md="7" ld="6">
@@ -38,7 +38,7 @@
                     v-b-modal.add-product
                     variant="primary"
                     class="btn-block js-lot-offer-edit"
-                    >Добавить предложение</BButton
+                    >{{ $t('tradeItem.addOffer') }}</BButton
                   >
                 </BCol>
               </BRow>

@@ -28,7 +28,7 @@
       <BRow class="mt-3">
         <BCol cols="12" md="3" xs="6">
           <div class="text-secondary text-uppercase font-weight-bold fa-xs">
-            Дата регистрации
+            {{ $t('userProfilePage.registrationDate') }}
           </div>
           <div class="w-50 mt-2">
             <div>
@@ -54,7 +54,7 @@
                 <BRow
                   class="text-secondary text-uppercase font-weight-bold fa-xs mb-2"
                 >
-                  Отзывы
+                  {{ $t('userProfilePage.reviews') }}
                 </BRow>
                 <BRow class="bg-white rounded-lg w-100 p-3 mb-3">
                   <RatingAndReviewsComponent

@@ -1,12 +1,12 @@
 <template>
   <div class="m-3 m-md-0">
-    <TitleComponent>Изменить пароль</TitleComponent>
+    <TitleComponent>{{ $t('changePassword.changePassword') }}</TitleComponent>
     <BContainer>
       <BRow>
         <BCol md="3" ld="12">
           <BFormGroup>
             <label class="text-uppercase text-secondary fa-xs"
-              >текущий пароль</label
+              >{{ $t('changePassword.currentPassword') }}</label
             >
             <BFormInput
               v-model="passwordData.currentPassword"
@@ -16,7 +16,7 @@
           </BFormGroup>
           <BFormGroup>
             <label class="text-uppercase text-secondary fa-xs"
-              >новый пароль</label
+              >{{ $t('changePassword.newPassword') }}</label
             >
             <BFormInput
               v-model="passwordData.newPassword"
@@ -24,12 +24,12 @@
               type="password"
             ></BFormInput>
             <span class="text-secondary fa-swap-opacity fa-xs"
-              >Минимум 8 символов</span
+              >{{ $t('changePassword.minimum') }}</span
             >
           </BFormGroup>
           <BFormGroup>
             <label class="text-uppercase text-secondary fa-xs"
-              >подтвердите пароль</label
+              >{{ $t('changePassword.confirmPassword') }}</label
             >
             <BFormInput
               v-model="passwordData.confirmNewPassword"
@@ -41,10 +41,7 @@
             @click="onChangeUserPassword"
             variant="primary"
             class="shadow-none"
-            >Сохранить</BButton
-          >
-          <RouterLink class="ml-3" :to="{ name: 'ForgotPassword' }"
-            >Забыл пароль?</RouterLink
+            >{{ $t('changePassword.save') }}</BButton
           >
         </BCol>
       </BRow>

@@ -1,7 +1,7 @@
 <template>
   <BCard class="mb-2">
     <h5 class="unique-font">
-      Способ оплаты
+      {{ $t('myOrder.paymentMethod') }}
     </h5>
     <div class="mb-4">
       <span>
@@ -13,7 +13,7 @@
       >{{ order.walletType.name }}
     </div>
     <h5 class="unique-font">
-      Сумма оплаты
+      {{ $t('myOrder.paymentAmount') }}
     </h5>
     <div class="fa-lg font-weight-bold mb-4">
       {{ order.orderPrice }}
@@ -27,7 +27,7 @@
       variant="primary"
       class="font-weight-bold shadow-none mb-2"
     >
-      Оплатить
+      {{ $t('myOrder.pay') }}
     </BButton>
     <BButton
       v-else
@@ -37,11 +37,10 @@
       variant="primary"
       class="font-weight-bold shadow-none mb-2"
     >
-      Оплатить
+      {{ $t('myOrder.pay') }}
     </BButton>
     <BCardText class="text-secondary">
-      Продавец не сможет получить оплату до тех пор, пока вы не подтвердите
-      выполнение им всех обязательств.
+      {{ $t('myOrder.text') }}
     </BCardText>
   </BCard>
 </template>

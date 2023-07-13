@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleComponent>Авторизация</TitleComponent>
+    <TitleComponent>{{ $t('views.auth') }}</TitleComponent>
     <AuthComponent></AuthComponent>
   </div>
 </template>
