@@ -1,7 +1,10 @@
 version: '3'
 services:
   node:
-    image: node:12
+    image: node:12-slim
     working_dir: /app
+    command: npm run serve
     volumes:
       - .:/app
+    ports:
+      - 8082:8080
