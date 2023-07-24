@@ -1,7 +1,10 @@
 <template>
   <div>
     <TitleComponent>FAQ</TitleComponent>
-    <div>
+    <div v-if="loading" class="d-flex justify-content-center">
+      <Loading/>
+    </div>
+    <div v-else>
       <div>
         <div class="exp-content">
           <div class="exp-content__edit">
@@ -19,12 +22,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import {mapGetters, mapActions, mapState} from 'vuex';
 import TitleComponent from '@/components/main-layout-blocks/title/TitleComponent';
 import * as faqGetters from '@/store/modules/faq/types/getters';
 import * as faqActions from '@/store/modules/faq/types/actions';
 import * as notificationActions from '@/store/modules/notification/types/actions';
 import { integer } from 'vuelidate/lib/validators';
+import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'FaqDetailComponent',
@@ -32,11 +36,15 @@ export default {
     id: integer
   },
   components: {
+    Loading,
     TitleComponent
   },
   computed: {
     ...mapGetters('Faq', {
       question: faqGetters.GET_CURRENT_QUESTION
+    }),
+    ...mapState({
+      loading: (state) => state.Faq.loading,
     }),
     title() {
       return this.question ? this.question.title : '';
