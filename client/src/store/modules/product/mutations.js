@@ -1,7 +1,9 @@
 import * as mutations from './types/mutations';
 import { productsMapper, productMapper } from './normalizer';
+import loading from '@/store/mixins/loading';
 
 export default {
+  [mutations.SET_LOADING]: loading.mutations.setLoading,
   [mutations.SET_PRODUCT]: (state, product) => {
     state.product = productMapper(product);
   },

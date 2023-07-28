@@ -73,7 +73,7 @@ import ProductAddModalComponent from '@/components/form/modal/ProductAddModalCom
 import * as categoryActions from '@/store/modules/category/types/actions';
 import * as categoryGetters from '@/store/modules/category/types/getters';
 import * as notificationActions from '@/store/modules/notification/types/actions';
-import { mapGetters, mapActions } from 'vuex';
+import {mapGetters, mapActions, mapState} from 'vuex';
 import Vue from 'vue';
 import ProductEditModalComponent from '../components/form/modal/ProductEditModalComponent';
 import * as productActions from '@/store/modules/product/types/actions';
@@ -98,6 +98,9 @@ export default {
     }),
     ...mapGetters('Product', {
       productForEdit: productGetters.GET_PRODUCT
+    }),
+    ...mapState({
+      loading: (state) => state.Product.loading,
     })
   },
   methods: {
