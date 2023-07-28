@@ -1,7 +1,9 @@
 import * as mutations from './types/mutations';
 import { userWalletMapper, userWalletsMapper } from './normalizer';
+import loading from '@/store/mixins/loading';
 
 export default {
+  [mutations.SET_LOADING]: loading.mutations.setLoading,
   [mutations.SET_USER_WALLETS_BY_WALLET_TYPE_ID]: (state, userWallet) => {
     state.userWalletsByWalletTypeId = userWalletsMapper(userWallet);
   },
