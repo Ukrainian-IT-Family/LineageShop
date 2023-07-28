@@ -9,11 +9,15 @@ export default {
     categoryId
   ) => {
     try {
+
+      commit(mutations.SET_LOADING, true);
       const currentProperties = await PropertyService.getCurrentProperties(
         categoryId
       );
       commit(mutations.SET_CURRENT_PROPERTIES, currentProperties);
+      commit(mutations.SET_LOADING, false);
     } catch (error) {
+      commit(mutations.SET_LOADING, false);
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,

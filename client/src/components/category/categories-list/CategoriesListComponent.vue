@@ -1,24 +1,33 @@
 <template>
-  <div class="category-list d-flex flex-wrap align-items-center">
-    <template v-for="category in categories">
-      <Category :key="category.id" :category="category"></Category>
-    </template>
+  <div>
+    <div v-if="loading" class="d-flex justify-content-center">
+      <Loading/>
+    </div>
+    <div class="category-list d-flex flex-wrap align-items-center">
+      <template v-for="category in categories">
+        <Category :key="category.id" :category="category"></Category>
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import {mapActions, mapGetters, mapState} from 'vuex';
 import * as categoryGetters from '@/store/modules/category/types/getters';
 import * as categoryActions from '@/store/modules/category/types/actions';
 import Category from '@/components/category/categories-list/Category';
 import * as notificationActions from '@/store/modules/notification/types/actions';
+import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'CategoriesListComponent',
-  components: { Category },
+  components: {Loading, Category },
   computed: {
     ...mapGetters('Category', {
       categories: categoryGetters.GET_CATEGORIES
+    }),
+    ...mapState({
+      loading: (state) => state.Category.loading,
     })
   },
   methods: {

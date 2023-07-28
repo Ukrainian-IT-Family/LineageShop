@@ -12,7 +12,10 @@
       <SellButton :currentCategory="currentCategory"></SellButton>
     </BRow>
     <BRow class="product-list w-100">
-      <ProductListTableComponent
+      <div v-if="loading" class="d-flex justify-content-center w-100">
+        <Loading/>
+      </div>
+      <ProductListTableComponent v-else
         :currentCategory="currentCategory"
         :properties="getTableHeadProperties"
         :onlyOnline="onlyOnline"
@@ -29,11 +32,12 @@
 import FilterComponent from '@/components/product/product-list/filter/FilterComponent';
 import SellButton from '@/components/product/product-list/SellButton';
 import ProductListTableComponent from '@/components/product/product-list/product-list-table/ProductListTableComponent';
-import { mapActions, mapGetters } from 'vuex';
+import {mapActions, mapGetters, mapState} from 'vuex';
 import * as propertyGetters from '@/store/modules/property/types/getters';
 import * as propertyActions from '@/store/modules/property/types/actions';
 import Vue from 'vue';
 import * as notificationActions from '@/store/modules/notification/types/actions';
+import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'ProductListComponent',
@@ -46,13 +50,16 @@ export default {
       betweenFilter: {}
     };
   },
-  components: { ProductListTableComponent, SellButton, FilterComponent },
+  components: {Loading, ProductListTableComponent, SellButton, FilterComponent },
   props: {
     currentCategory: Object
   },
   computed: {
     ...mapGetters('Property', {
       properties: propertyGetters.GET_CURRENT_PROPERTIES
+    }),
+    ...mapState({
+      loading: (state) => state.Property.loading,
     }),
 
     getTableHeadProperties() {
