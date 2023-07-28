@@ -18,9 +18,12 @@ export default {
   },
   [actions.GET_USER]: async ({ commit, dispatch }, userId) => {
     try {
+      commit(mutations.SET_LOADING, true);
       const user = await UserService.getUserById(userId);
       commit(mutations.SET_USER, user);
+      commit(mutations.SET_LOADING, false);
     } catch (error) {
+      commit(mutations.SET_LOADING, false);
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,
