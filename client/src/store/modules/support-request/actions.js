@@ -81,11 +81,14 @@ export default {
     filtersValues
   ) => {
     try {
+      commit(mutations.SET_LOADING, true);
       const data = await SupportService.getSupportRequestsByCriteria(
         filtersValues
       );
       commit(mutations.SET_SUPPORT_REQUESTS, data);
+      commit(mutations.SET_LOADING, false);
     } catch (error) {
+      commit(mutations.SET_LOADING, false);
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,
