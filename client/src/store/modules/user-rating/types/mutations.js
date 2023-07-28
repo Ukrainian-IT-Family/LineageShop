@@ -1,1 +1,2 @@
 export const SET_USER_RATINGS_BY_USER = 'SET_USER_RATINGS_BY_USER';
+export const SET_LOADING = 'SET_LOADING';

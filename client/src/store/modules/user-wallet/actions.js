@@ -9,11 +9,14 @@ export default {
     walletTypeId
   ) => {
     try {
+      commit(mutations.SET_LOADING, true);
       const userWallets = await UserWalletService.getUserWalletsByWalletTypeId(
         walletTypeId
       );
       commit(mutations.SET_USER_WALLETS_BY_WALLET_TYPE_ID, userWallets);
+      commit(mutations.SET_LOADING, false);
     } catch (error) {
+      commit(mutations.SET_LOADING, false);
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,
@@ -23,9 +26,12 @@ export default {
   },
   [actions.GET_USER_WALLETS]: async ({ commit, dispatch }) => {
     try {
+      commit(mutations.SET_LOADING, true);
       const userWallets = await UserWalletService.getUserWalletsForUser();
       commit(mutations.SET_USER_WALLETS, userWallets);
+      commit(mutations.SET_LOADING, false);
     } catch (error) {
+      commit(mutations.SET_LOADING, false);
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,

@@ -6,8 +6,10 @@ import {
   supportRequestsMapper,
   supportRequestsMessageMapper
 } from './normalizer';
+import loading from '@/store/mixins/loading';
 
 export default {
+  [mutations.SET_LOADING]: loading.mutations.setLoading,
   [mutations.SET_SUPPORT_REQUESTS]: (state, data) => {
     state.supportRequests = supportRequestsMapper(data);
   },

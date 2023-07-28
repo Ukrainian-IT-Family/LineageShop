@@ -1,7 +1,10 @@
 <template>
   <div>
     <TitleComponent>FAQ</TitleComponent>
-    <div>
+    <div v-if="loading" class="d-flex justify-content-center">
+      <Loading/>
+    </div>
+    <div v-else>
       <div>
         <div class="exp-content">
           <div class="exp-content__edit">
@@ -27,15 +30,17 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import {mapGetters, mapActions, mapState} from 'vuex';
 import TitleComponent from '@/components/main-layout-blocks/title/TitleComponent';
 import * as faqGetters from '@/store/modules/faq/types/getters';
 import * as faqActions from '@/store/modules/faq/types/actions';
 import * as notificationActions from '@/store/modules/notification/types/actions';
+import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'FaqComponent',
   components: {
+    Loading,
     TitleComponent
   },
   data() {
@@ -46,6 +51,9 @@ export default {
   computed: {
     ...mapGetters('Faq', {
       questions: faqGetters.GET_CURRENT_QUESTIONS
+    }),
+    ...mapState({
+      loading: (state) => state.Faq.loading,
     })
   },
   methods: {

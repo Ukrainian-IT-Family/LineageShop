@@ -1,29 +1,32 @@
 <template>
   <BContainer>
     <TitleComponent>{{ $t('userWallets.wallets') }}</TitleComponent>
-    <div v-if="userWalletsIsEmpty">{{ $t('userWallets.noWallets') }}</div>
+    <div v-if="userWalletsIsEmpty && !loading">{{ $t('userWallets.noWallets') }}</div>
+    <div v-else-if="loading" class="d-flex justify-content-center">
+      <Loading/>
+    </div>
     <div v-else>
-      <BCol cols="12" class="pt-3">
-        <BTableSimple>
-          <BThead class="border-bottom pb-3">
-            <BTr>
-              <BTh>{{ $t('userWallets.cardType') }}</BTh>
-              <BTh>{{ $t('userWallets.card') }}</BTh>
-              <BTh> </BTh>
-              <BTh> </BTh>
-            </BTr>
-          </BThead>
-          <BTbody>
-            <UserWalletRowComponent
+    <BCol cols="12" class="pt-3">
+      <BTableSimple>
+        <BThead class="border-bottom pb-3">
+          <BTr>
+            <BTh>{{ $t('userWallets.cardType') }}</BTh>
+            <BTh>{{ $t('userWallets.card') }}</BTh>
+            <BTh> </BTh>
+            <BTh> </BTh>
+          </BTr>
+        </BThead>
+        <BTbody>
+          <UserWalletRowComponent
               v-for="userWallet in userWallets"
               :key="userWallet.id"
               :userWallet="userWallet"
               :optionsUserWallets="optionsUserWallets"
-            ></UserWalletRowComponent>
-          </BTbody>
-        </BTableSimple>
-      </BCol>
-    </div>
+          ></UserWalletRowComponent>
+        </BTbody>
+      </BTableSimple>
+    </BCol>
+  </div>
     <BButton
       v-b-modal.add-user-wallet
       variant="primary"
@@ -45,12 +48,14 @@ import * as userWalletsActions from '@/store/modules/user-wallet/types/actions';
 import * as walletTypesGetters from '@/store/modules/wallet-type/types/getters';
 import * as walletTypesActions from '@/store/modules/wallet-type/types/actions';
 import * as notificationActions from '@/store/modules/notification/types/actions';
-import { mapActions, mapGetters } from 'vuex';
+import {mapActions, mapGetters, mapState} from 'vuex';
 import _ from 'lodash';
+import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'UserWallets',
   components: {
+    Loading,
     TitleComponent,
     UserWalletRowComponent,
     ModalAddUserWalletComponent
@@ -61,6 +66,9 @@ export default {
     }),
     ...mapGetters('WalletType', {
       walletTypes: walletTypesGetters.GET_WALLET_TYPES
+    }),
+    ...mapState({
+      loading: (state) => state.UserWallet.loading,
     }),
     optionsUserWallets() {
       let optionsUserWallet = [{ value: null, text: '' }];

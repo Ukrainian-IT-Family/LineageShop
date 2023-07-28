@@ -1,7 +1,9 @@
 import * as mutations from './types/mutations';
 import { orderMapper, ordersMapper } from './normalizer';
+import loading from '@/store/mixins/loading';
 
 export default {
+  [mutations.SET_LOADING]: loading.mutations.setLoading,
   [mutations.SET_ORDERS]: (state, orders) => {
     state.orders = ordersMapper(orders);
   },

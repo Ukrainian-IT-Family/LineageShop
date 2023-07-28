@@ -6,9 +6,12 @@ import * as notificationActions from '@/store/modules/notification/types/actions
 export default {
   [actions.GET_ORDERS]: async ({ commit, dispatch }, data) => {
     try {
+      commit(mutations.SET_LOADING, true);
       const orders = await OrderService.getAllOrders(data);
       commit(mutations.SET_ORDERS, orders);
+      commit(mutations.SET_LOADING, false);
     } catch (error) {
+      commit(mutations.SET_LOADING, false);
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,
@@ -18,9 +21,12 @@ export default {
   },
   [actions.GET_PURCHASES]: async ({ commit, dispatch }, data) => {
     try {
+      commit(mutations.SET_LOADING, true);
       const purchases = await OrderService.getPurchasesForCurrentUser(data);
       commit(mutations.SET_PURCHASES, purchases);
+      commit(mutations.SET_LOADING, false);
     } catch (error) {
+      commit(mutations.SET_LOADING, false);
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,
@@ -30,9 +36,12 @@ export default {
   },
   [actions.GET_SALES]: async ({ commit, dispatch }, data) => {
     try {
+      commit(mutations.SET_LOADING, true);
       const sales = await OrderService.getSalesForCurrentUser(data);
       commit(mutations.SET_SALES, sales);
+      commit(mutations.SET_LOADING, false);
     } catch (error) {
+      commit(mutations.SET_LOADING, false);
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,

@@ -84,7 +84,11 @@
         />
       </BCol>
     </BRow>
-    <FinanceOperationAdminPanelTable
+
+    <div v-if="loading" class="d-flex justify-content-center">
+      <Loading/>
+    </div>
+    <FinanceOperationAdminPanelTable v-else
       :financeOperations="financeOperations(orderType, orderDirection)"
       @orderParameters="setOrderParameters"
     />
@@ -96,11 +100,13 @@ import FinanceOperationAdminPanelTable from './table/FinanceOperationAdminPanelT
 import * as financeOperationActions from '@/store/modules/finance-operation/types/actions';
 import * as financeOperationGetters from '@/store/modules/finance-operation/types/getters';
 import * as notificationActions from '@/store/modules/notification/types/actions';
-import { mapActions, mapGetters } from 'vuex';
+import {mapActions, mapGetters, mapState} from 'vuex';
+import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'FinanceOperationAdminPanelComponent',
   components: {
+    Loading,
     FinanceOperationAdminPanelTable
   },
   data() {
@@ -117,6 +123,9 @@ export default {
   computed: {
     ...mapGetters('FinanceOperation', {
       financeOperations: financeOperationGetters.GET_FINANCE_OPERATIONS
+    }),
+    ...mapState({
+      loading: (state) => state.FinanceOperation.loading,
     })
   },
   methods: {

@@ -9,9 +9,12 @@ export default {
     userId = null
   ) => {
     try {
+      commit(mutations.SET_LOADING, true);
       const userRatings = await UserRatingService.getUserRating(userId);
       commit(mutations.SET_USER_RATINGS_BY_USER, userRatings);
+      commit(mutations.SET_LOADING, false);
     } catch (error) {
+      commit(mutations.SET_LOADING, false);
       dispatch(
         'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
         error,

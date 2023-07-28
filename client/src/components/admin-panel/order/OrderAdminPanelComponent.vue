@@ -37,8 +37,12 @@
         </BButton>
       </BCol>
     </BRow>
+
+    <div v-if="loading" class="d-flex justify-content-center w-100">
+      <Loading/>
+    </div>
     <OrderAdminPanelTable
-      v-if="isSetOrders"
+      v-else-if="isSetOrders"
       :orders="orders"
     ></OrderAdminPanelTable>
     <EmptyAdminPanelComponent v-else>{{
@@ -53,12 +57,14 @@ import EmptyAdminPanelComponent from '../EmptyAdminPanelComponent';
 import * as orderGetters from '@/store/modules/order/types/getters';
 import * as orderActions from '@/store/modules/order/types/actions';
 import * as notificationActions from '@/store/modules/notification/types/actions';
-import { mapActions, mapGetters } from 'vuex';
+import {mapActions, mapGetters, mapState} from 'vuex';
 import _ from 'lodash';
+import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'OrderAdminPanelComponent',
   components: {
+    Loading,
     OrderAdminPanelTable,
     EmptyAdminPanelComponent
   },
@@ -72,6 +78,9 @@ export default {
   computed: {
     ...mapGetters('order', {
       orders: orderGetters.GET_ORDERS
+    }),
+    ...mapState({
+      loading: (state) => state.order.loading,
     }),
     isSetOrders() {
       return !_.isEmpty(this.orders);
