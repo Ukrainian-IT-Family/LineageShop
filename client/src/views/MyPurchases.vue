@@ -57,8 +57,11 @@
       </BCol>
     </BRow>
     <BRow>
+      <div v-if="loading" class="d-flex justify-content-center w-100">
+        <Loading/>
+      </div>
       <PurchasesListTableComponent
-        v-if="setOrderType"
+        v-else-if="setOrderType && !loading"
         :orders="purchases"
         :orderType="setOrderType"
         class="mt-2"
@@ -69,17 +72,19 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import {mapActions, mapGetters, mapState} from 'vuex';
 import * as orderGetters from '@/store/modules/order/types/getters';
 import * as orderActions from '@/store/modules/order/types/actions';
 import * as notificationActions from '@/store/modules/notification/types/actions';
 import PurchasesListTableComponent from '@/components/my-order/PurchasesListTableComponent';
 import EmptyPurchasesComponent from '@/components/my-order/EmptyPurchasesComponent';
 import _ from 'lodash';
+import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'MyPurchases',
   components: {
+    Loading,
     PurchasesListTableComponent,
     EmptyPurchasesComponent
   },
@@ -93,6 +98,9 @@ export default {
   computed: {
     ...mapGetters('order', {
       purchases: orderGetters.GET_PURCHASES
+    }),
+    ...mapState({
+      loading: (state) => state.order.loading,
     }),
     setOrderType() {
       if (!_.isEmpty(this.purchases)) {
