@@ -43,7 +43,7 @@ import {
 import i18n from './locales';
 
 const moment = require('moment');
-require('moment/locale/ru');
+require('moment/locale/en-gb');
 Vue.use(require('vue-moment'), {
   moment
 });
