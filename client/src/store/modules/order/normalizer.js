@@ -50,26 +50,26 @@ function presentStatus(status) {
     case Vue.prototype.$getConst('ORDER_STATUS').CREATED:
       return {
         value: Vue.prototype.$getConst('ORDER_STATUS').CREATED,
-        title: 'Создан',
+        title: 'Created',
         variant: 'secondary'
       };
     case Vue.prototype.$getConst('ORDER_STATUS').CLOSED:
       return {
         value: Vue.prototype.$getConst('ORDER_STATUS').CLOSED,
-        title: 'Закрыт',
+        title: 'Closed',
         variant: 'success'
       };
     case Vue.prototype.$getConst('ORDER_STATUS').CONFIRMED:
       return {
         value: Vue.prototype.$getConst('ORDER_STATUS').CONFIRMED,
-        title: 'Подтвержден',
+        title: 'Confirmed',
         variant: 'secondary'
       };
 
     case Vue.prototype.$getConst('ORDER_STATUS').CANCELED:
       return {
         value: Vue.prototype.$getConst('ORDER_STATUS').CANCELED,
-        title: 'Отменён',
+        title: 'Canceled',
         variant: 'danger'
       };
     default:

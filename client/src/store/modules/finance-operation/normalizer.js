@@ -28,7 +28,7 @@ export const financeOperationMapper = financeOperation => ({
   createdAt: financeOperation.createdAt,
   wallet: financeOperation.wallet
     ? userWalletMapper(financeOperation.wallet)
-    : { info: 'Кошелек удален' },
+    : { info: 'Wallet removed' },
   canceledAt: financeOperation.canceledAt,
   canceledInfo: financeOperation.canceledInfo
 });
@@ -38,13 +38,13 @@ function presentTypes(type) {
     case Vue.prototype.$getConst('FINANCE_OPERATION_TYPE').ENROLLMENT:
       return {
         value: Vue.prototype.$getConst('FINANCE_OPERATION_TYPE').ENROLLMENT,
-        title: 'Зачисление',
+        title: 'Deposit',
         isEnrollment: true
       };
     case Vue.prototype.$getConst('FINANCE_OPERATION_TYPE').WRITE_OFFS:
       return {
         value: Vue.prototype.$getConst('FINANCE_OPERATION_TYPE').WRITE_OFFS,
-        title: 'Списание',
+        title: 'Debit',
         isEnrollment: false
       };
     default:
@@ -56,7 +56,7 @@ function presentStatus(status) {
   switch (status) {
     case Vue.prototype.$getConst('FINANCE_OPERATION_STATUS').CREATED:
       return {
-        title: 'Созданно',
+        title: 'Created',
         variant: 'warning',
         value: Vue.prototype.$getConst('FINANCE_OPERATION_STATUS').CREATED,
         isExecuted: false,
@@ -64,7 +64,7 @@ function presentStatus(status) {
       };
     case Vue.prototype.$getConst('FINANCE_OPERATION_STATUS').EXECUTED:
       return {
-        title: 'Выполненно',
+        title: 'Done',
         variant: '',
         value: Vue.prototype.$getConst('FINANCE_OPERATION_STATUS').EXECUTED,
         isExecuted: true,
@@ -72,7 +72,7 @@ function presentStatus(status) {
       };
     case Vue.prototype.$getConst('FINANCE_OPERATION_STATUS').PENDING:
       return {
-        title: 'Ожидание',
+        title: 'Waiting',
         variant: 'warning',
         value: Vue.prototype.$getConst('FINANCE_OPERATION_STATUS').PENDING,
         isExecuted: false,
@@ -80,7 +80,7 @@ function presentStatus(status) {
       };
     case Vue.prototype.$getConst('FINANCE_OPERATION_STATUS').CANCELED:
       return {
-        title: 'Отменено',
+        title: 'Canceled',
         variant: '',
         value: Vue.prototype.$getConst('FINANCE_OPERATION_STATUS').EXECUTED,
         isExecuted: false,
