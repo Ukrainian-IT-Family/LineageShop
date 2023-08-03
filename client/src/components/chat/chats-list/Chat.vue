@@ -5,10 +5,8 @@
         <BAvatar class="mr-3" :src="chat.recipientUser.userPhoto"></BAvatar>
         <div>
           <strong class="login">{{ chat.recipientUser.login }}</strong>
-          <!--          <div class="text-light">Сообщение скрыто</div>-->
         </div>
       </div>
-      <!--    <div class="text-light">18.03</div>-->
     </BRow>
   </RouterLink>
 </template>

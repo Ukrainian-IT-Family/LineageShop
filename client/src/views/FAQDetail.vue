@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TitleComponent>FAQ</TitleComponent>
+    <TitleComponent>{{ $t('views.faq') }}</TitleComponent>
     <div v-if="loading" class="d-flex justify-content-center">
       <Loading/>
     </div>
@@ -9,7 +9,7 @@
         <div class="exp-content">
           <div class="exp-content__edit">
             <div class="base__detail">
-              <p class="data link" @click="back">Назад</p>
+              <p class="data link" @click="back">{{ $t('views.back') }}</p>
               <h3>{{ title }}</h3>
               <h4></h4>
               <div v-html="description"></div>

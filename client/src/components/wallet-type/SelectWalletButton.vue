@@ -21,10 +21,6 @@
         {{ walletType.name }}
       </BDropdownItem>
     </BDropdown>
-    <!--    <div class="text-black-50">-->
-    <!--      Ваш регион — Украина. Если это неверно,-->
-    <!--      <RouterLink to="#">нажмите здесь</RouterLink>.-->
-    <!--    </div>-->
   </div>
 </template>
 

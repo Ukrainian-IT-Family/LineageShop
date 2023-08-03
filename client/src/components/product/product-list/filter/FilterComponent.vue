@@ -10,7 +10,7 @@
           <BRow>
             <div class="filter-item m-1">
               <BFormGroup
-                label="Только продавцы онлайн"
+                :label="$t('productList.onlyOnline')"
                 label-size="sm"
                 label-for="filter-online-sellers"
                 content-cols="2"

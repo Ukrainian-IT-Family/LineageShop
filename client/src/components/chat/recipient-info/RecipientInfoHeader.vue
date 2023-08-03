@@ -7,25 +7,6 @@
         <div class="text-secondary">{{ statusOnline }}</div>
       </div>
     </BCol>
-    <!--      <BCol md="4" class="d-flex justify-content-end p-3">-->
-    <!--        <BButton class="bg-light border-0">-->
-    <!--          <div class="fa-xs text-primary">-->
-    <!--            <FontAwesomeIcon-->
-    <!--              class="text-primary mr-1"-->
-    <!--              :icon="['fa', 'bell']"-->
-    <!--              size="lg"-->
-    <!--            />-->
-    <!--            Включить оповещения-->
-    <!--          </div>-->
-    <!--        </BButton>-->
-    <!--        <BButton class="bg-light border-0 ml-3">-->
-    <!--          <FontAwesomeIcon-->
-    <!--            class="text-primary"-->
-    <!--            :icon="['fas', 'exclamation-triangle']"-->
-    <!--            size="x"-->
-    <!--          />-->
-    <!--        </BButton>-->
-    <!--      </BCol>-->
   </div>
 </template>
 

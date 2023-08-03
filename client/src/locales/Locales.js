@@ -58,7 +58,19 @@ export default {
       order: 'Orders',
       finHistory: 'History of financial transactions',
       atYourRequest: 'At Your Request',
-      notFound: 'not found'
+      notFound: 'not found',
+      onlineStatus: 'Online Status',
+      email: 'Email',
+      resetPassword: 'Reset password',
+      edit: 'Edit',
+      passwordResetMessageSentToUser: 'Password reset message sent to user',
+      userDataChanged: 'User data changed',
+      techSupport: 'Tech. support',
+      text: 'Text',
+      send: 'Send',
+      closeTicket: 'Close ticket',
+      openTicket: 'Open ticket',
+      usersLow: 'users',
     },
     auth: {
       email: 'EMAIL',
@@ -204,7 +216,9 @@ export default {
       level: 'Level',
       iWillPay: 'I will pay',
       iWillReceive: 'Will receive',
-      chatCreated: 'Чат успешно создан'
+      chatCreated: 'Chat created successfully',
+      price: 'Price',
+      checkout: 'Checkout'
     },
     productList: {
       filters: 'Filters',
@@ -213,7 +227,8 @@ export default {
       seller: 'Seller',
       availability: 'Availability',
       price: 'Price',
-      onSite: 'on site 5 years'
+      onSite: 'on site 5 years',
+      onlyOnline: 'Only online sellers'
     },
     productListByUser: {
       description: 'Description',
@@ -255,6 +270,7 @@ export default {
       lastUpdate: 'Last update',
       id: 'ID',
       status: 'Status',
+      answer: 'We are waiting for your answer',
       theme: 'Theme',
       login: 'Your name (login) on BucksTrade',
       orderNumber: 'Order number'
@@ -313,7 +329,13 @@ export default {
       registration: 'Registration',
       changePassword: 'Change password',
       authBy: 'Authorization via',
-      serviceTests: 'Service Test'
+      serviceTests: 'Service Test',
+      emailConfirmationSent: 'Confirmation email has been sent.',
+      emailSuccessfullyChanged: 'Email successfully changed.',
+      requestHasBeenSent: 'Request has been sent',
+      passwordChangedSuccessfully: 'Password changed successfully',
+      faq: 'FAQ',
+      back: 'Back',
     },
     bindEmail: {
       changeEmail: 'Change Email',

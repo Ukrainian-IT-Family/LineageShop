@@ -31,7 +31,7 @@
       <dd>
         <span
           class="status-label status-label-answered"
-          title="Мы ждем от вас ответа"
+          :title="$t('supportChat.answer')"
         >
           {{ support.status.label }}
         </span>

@@ -55,7 +55,7 @@ export default {
       try {
         await this.bindEmail({ email: this.getLoggedUser.email });
         await this.setSuccessNotification(
-          'Письмо с подтверждением отправлено.'
+            this.$t('views.emailConfirmationSent')
         );
       } catch (error) {
         this.setErrorNotification(error);
@@ -66,7 +66,7 @@ export default {
     if (this.$route.query.token) {
       try {
         await this.changeEmail({ token: this.$route.query.token });
-        await this.setSuccessNotification('Почта удачно изменена.');
+        await this.setSuccessNotification(this.$t('views.emailSuccessfullyChanged'));
       } catch (error) {
         this.setErrorNotification(error);
       }

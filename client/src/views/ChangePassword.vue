@@ -86,7 +86,7 @@ export default {
     async onChangeUserPassword() {
       try {
         await this.changeUserPassword(this.passwordData);
-        await this.setSuccessNotification('Изменение пароля успешно');
+        await this.setSuccessNotification(this.$t('views.passwordChangedSuccessfully'));
         await this.resetPasswordData();
       } catch (error) {
         this.setErrorNotification(error);

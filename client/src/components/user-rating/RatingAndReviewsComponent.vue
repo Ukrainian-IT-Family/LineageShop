@@ -10,11 +10,6 @@
           :key="userRating.id"
           :userRating="userRating"
         ></UserReviewComponent>
-        <!--        <BButton-->
-        <!--          v-if="existUserRatings"-->
-        <!--          class="border-light bg-light text-primary font-weight-bold w-100 shadow-none"-->
-        <!--          >Показать еще отзывы</BButton-->
-        <!--        >-->
       </div>
     </div>
   </div>

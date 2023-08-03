@@ -31,16 +31,6 @@
         </BCol>
       </BRow>
     </BRow>
-
-    <!--    <BRow-->
-    <!--      class="mb-3 pt-3 d-flex justify-content-center align-items-center position-relative"-->
-    <!--    >-->
-    <!--      <div class="pr-2 pl-2 bg-white text-secondary position-absolute">-->
-    <!--        24 января-->
-    <!--      </div>-->
-    <!--      <span class="border-bottom w-100 bg-secondary"></span>-->
-    <!--    </BRow>-->
-
     <BRow
       class="d-flex justify-content-between mb-3"
       v-for="message in messages"

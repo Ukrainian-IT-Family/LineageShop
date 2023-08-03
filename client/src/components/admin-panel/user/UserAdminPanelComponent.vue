@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-uppercase text-secondary mb-3">
-      пользователи
+      {{ $t('adminPanel.usersLow') }}
     </div>
     <UserAdminPanelTable :users="users"></UserAdminPanelTable>
   </div>

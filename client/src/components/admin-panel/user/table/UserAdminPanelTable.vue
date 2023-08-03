@@ -4,11 +4,11 @@
       <BTableSimple borderless hover>
         <BThead class="border-bottom pb-3">
           <BTr>
-            <BTh>Онлайн статус</BTh>
-            <BTh>Логин</BTh>
-            <BTh>Email</BTh>
+            <BTh>{{ $t('adminPanel.onlineStatus') }}</BTh>
+            <BTh>{{ $t('adminPanel.login') }}</BTh>
+            <BTh>{{ $t('adminPanel.email') }}</BTh>
             <BTh> </BTh>
-            <BTh>Сбросить пароль</BTh>
+            <BTh>{{ $t('adminPanel.resetPassword') }}</BTh>
           </BTr>
         </BThead>
         <BTbody>

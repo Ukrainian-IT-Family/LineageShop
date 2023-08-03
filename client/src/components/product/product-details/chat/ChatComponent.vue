@@ -30,32 +30,6 @@
           </div>
         </div>
         <div class="chat-control d-flex justify-content-end m-3">
-          <!--          <BButton class="bg-light border-0">-->
-          <!--            <FontAwesomeIcon-->
-          <!--              class="text-primary"-->
-          <!--              :icon="['far', 'clone']"-->
-          <!--              size="1x"-->
-          <!--            />-->
-          <!--          </BButton>-->
-          <!--          <BButton-->
-          <!--            class="bg-light border-0 ml-2 w-50 d-flex align-items-center text-primary p-2"-->
-          <!--          >-->
-          <!--            <div class="mr-2">-->
-          <!--              <FontAwesomeIcon-->
-          <!--                class="text-primary mr-1"-->
-          <!--                :icon="['fas', 'bell']"-->
-          <!--                size="1x"-->
-          <!--              />-->
-          <!--            </div>-->
-          <!--            <div class="fa-xs text-left">Включить оповещения</div>-->
-          <!--          </BButton>-->
-          <!--          <BButton class="bg-light border-0 ml-2">-->
-          <!--            <FontAwesomeIcon-->
-          <!--              class="text-primary"-->
-          <!--              :icon="['fas', 'exclamation-triangle']"-->
-          <!--              size="1x"-->
-          <!--            />-->
-          <!--          </BButton>-->
         </div>
       </div>
       <MessagesListComponent v-if="chat.id" :messages="messages">

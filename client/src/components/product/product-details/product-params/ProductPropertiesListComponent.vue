@@ -9,7 +9,7 @@
       </BCol>
     </template>
     <BCol cols="6">
-      <ProductPropertiesItemComponent name="Цена" :property="product.price" />
+      <ProductPropertiesItemComponent :name="$t('productDetails.price')" :property="product.price" />
     </BCol>
     <template v-if="product.rank">
       <BCol cols="6" v-if="product.rank.value">

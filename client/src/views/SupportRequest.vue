@@ -217,7 +217,7 @@ export default {
             this.sendSupportRequestData
           );
           if (successRequest !== false) {
-            await this.setSuccessNotification('Запрос отправлен');
+            await this.setSuccessNotification(this.$t('views.requestHasBeenSent'));
             this.sendSupportRequestData = {
               email: this.getLoggedUser.email,
               subject: 0,

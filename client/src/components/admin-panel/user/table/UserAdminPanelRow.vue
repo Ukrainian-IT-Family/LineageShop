@@ -24,7 +24,7 @@
         variant="primary"
         class="font-weight-bold shadow-none"
       >
-        Изменить
+        {{ $t('adminPanel.edit') }}
       </BButton>
     </BTh>
     <BTh>
@@ -32,7 +32,7 @@
         @click="onAdminResetUserPassword"
         variant="danger"
         class="font-weight-bold shadow-none"
-        >Сбросить пароль</BButton
+        >{{ $t('adminPanel.resetPassword') }}</BButton
       >
     </BTh>
   </BTr>
@@ -77,7 +77,7 @@ export default {
       try {
         await this.adminResetUserPassword({ id: this.user.id });
         await this.setSuccessNotification(
-          'Сообщение о сбросе пароля отправлено пользователю'
+          this.$t('adminPanel.passwordResetMessageSentToUser')
         );
       } catch (error) {
         this.setErrorNotification(error);
@@ -90,7 +90,7 @@ export default {
           login: this.user.login,
           email: this.user.email
         });
-        await this.setSuccessNotification('Данные пользователя изменены');
+        await this.setSuccessNotification(this.$t('adminPanel.userDataChanged'));
       } catch (error) {
         this.setErrorNotification(error);
       }

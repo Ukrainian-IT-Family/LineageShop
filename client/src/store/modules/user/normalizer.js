@@ -28,12 +28,12 @@ export const userMapper = user => ({
 function presentUserStatus(userStatus) {
   if (userStatus) {
     return {
-      text: 'Онлайн',
+      text: 'Online',
       variant: 'success'
     };
   }
   return {
-    text: 'Офлайн',
+    text: 'Offline',
     variant: 'secondary'
   };
 }
@@ -41,12 +41,12 @@ function presentUserStatus(userStatus) {
 function presentConfirmSendEmail(confirmSendEmailStatus) {
   if (confirmSendEmailStatus) {
     return {
-      text: 'Отключить',
+      text: 'Turn off',
       variant: 'success'
     };
   }
   return {
-    text: 'Включить',
+    text: 'Turn on',
     variant: 'light'
   };
 }

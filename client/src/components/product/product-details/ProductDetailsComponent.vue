@@ -9,7 +9,7 @@
       </BCol>
       <BCol md="5" sm="9">
         <ProductParamsComponent
-          :title="'Оформление заказа'"
+          :title="$t('productDetails.checkout')"
           :product="product"
           :walletTypes="walletTypes"
           :currentCategory="currentCategory"
