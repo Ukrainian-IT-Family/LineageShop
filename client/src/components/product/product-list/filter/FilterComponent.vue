@@ -94,13 +94,14 @@ export default {
     },
 
     setShowSubProperty(checkedValueArray) {
+      this.subProperties = [];
       let checkedId = checkedValueArray[0];
       let inputName = checkedValueArray[1];
       if (inputName === 'property') {
         this.parentPropertiesIdArray.map(propertyId => {
           delete this.checkedProperties[
-            this.checkedProperties.indexOf(propertyId)
-          ];
+              this.checkedProperties.indexOf(propertyId)
+              ];
         });
       }
       this.checkedProperties.push(checkedId);

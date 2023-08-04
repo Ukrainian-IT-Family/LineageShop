@@ -84,6 +84,8 @@ export default {
     },
 
     setFirstFilter(filterValuesArray) {
+      this.secondFilter = [];
+
       return (this.firstFilter = filterValuesArray);
     },
 
