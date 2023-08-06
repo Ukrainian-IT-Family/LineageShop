@@ -280,7 +280,9 @@ export default {
       didNotMatch: 'not found',
       dateOfCreation: 'Creation date',
       dateOfEdit: 'Last modified date',
-      status: 'Status'
+      status: 'Status',
+      id: 'ID',
+      subject: 'Subject',
     },
     userProfile: {
       offers: 'Offers',
