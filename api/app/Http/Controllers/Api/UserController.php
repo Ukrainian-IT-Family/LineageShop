@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Actions\User\ChangeUserAvatarAction;
+use App\Actions\User\ChangeUserAvatarRequest;
+use App\Http\Requests\User\UserChangeUserAvatarValidatorRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Actions\User\BindEmailAction;
@@ -85,10 +88,28 @@ class UserController extends ApiController
         $updatedUser = $changeUserDataAction
             ->execute(
                 new ChangeUserDataRequest(
-                $request->input('id'),
-                $request->input('login'),
-                $request->input('email')
+                    $request->input('id'),
+                    $request->input('login'),
+                    $request->input('email')
+                )
             )
+            ->getResponse();
+        $presenter = $userArrayPresenter->present($updatedUser);
+
+        return $this->successResponse($presenter);
+    }
+
+    public function changeUserAvatar(
+        ChangeUserAvatarAction $changeUserDataAction,
+        UserArrayPresenter $userArrayPresenter,
+        UserChangeUserAvatarValidatorRequest $request
+    ): JsonResponse {
+        $updatedUser = $changeUserDataAction
+            ->execute(
+                new ChangeUserAvatarRequest(
+                    $request->input('id'),
+                    $request->file('image'),
+                )
             )
             ->getResponse();
         $presenter = $userArrayPresenter->present($updatedUser);

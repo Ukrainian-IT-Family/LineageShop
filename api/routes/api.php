@@ -172,6 +172,7 @@ Route::group(
             Route::get('/users', [UserController::class, 'getAllUsers']);
             Route::patch('/users/admin-reset-user-password', [UserController::class, 'adminResetUserPassword']);
             Route::patch('/change-user-data', [UserController::class, 'changeUserData']);
+            Route::post('/change-user-avatar', [UserController::class, 'changeUserAvatar']);
             Route::get('/orders', [OrderController::class, 'getAllOrders']);
             Route::patch('/orders/change-order-status', [OrderController::class, 'changeOrderStatus']);
             Route::patch('/change-password', [UserController::class, 'changePassword']);
