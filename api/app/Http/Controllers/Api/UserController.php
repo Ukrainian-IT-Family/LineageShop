@@ -107,7 +107,6 @@ class UserController extends ApiController
         $updatedUser = $changeUserDataAction
             ->execute(
                 new ChangeUserAvatarRequest(
-                    $request->input('id'),
                     $request->file('image'),
                 )
             )

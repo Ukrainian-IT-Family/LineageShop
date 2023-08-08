@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Actions\User;
 
 use App\Repositories\User\UserRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,7 +20,7 @@ final class ChangeUserAvatarAction
 
     public function execute(ChangeUserAvatarRequest $request): ChangeUserAvatarResponse
     {
-        $user = $this->userRepositoryInterface->getById($request->getId());
+        $user = $this->userRepositoryInterface->getById(Auth::id());
 
         $filePath = Storage::putFileAs(
             Config::get('filesystems.profile_images_dir'),
