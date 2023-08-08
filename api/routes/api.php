@@ -202,6 +202,7 @@ Route::middleware('AuthorizationChecker')->group(function () {
     Route::get('/support-request-messages/{id}', [SupportRequestController::class, 'getAllSupportRequestMessages']);
     Route::post('/send-support-request-message', [SupportRequestController::class, 'sendSupportRequestMessage']);
     Route::patch('/support-request/status-update', [SupportRequestController::class, 'updateSupportStatusRequest']);
+    Route::patch('/users/change-password', [UserController::class, 'changePassword']);
 });
 Route::get('/status/{serviceName?}', [StatusController::class, 'status']);
 
