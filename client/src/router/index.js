@@ -20,6 +20,7 @@ import MySales from '@/views/MySales';
 import UserProfile from '@/views/UserProfile';
 import UserSelfProfile from '@/views/UserSelfProfile';
 import UserSettings from '@/views/UserSettings';
+import ChangeAvatar from '@/views/ChangeAvatar';
 import ChangePassword from '@/views/ChangePassword';
 import SupportRequest from '@/views/SupportRequest';
 import UserWallets from '@/views/UserWallets';
@@ -200,6 +201,12 @@ const routes = [
         path: '/administration/finance-operations',
         name: 'FinanceOperationAdminPanel',
         component: FinanceOperationAdminPanel,
+        meta: { requiresAuth: true }
+      },
+      {
+        path: '/account/avatar',
+        name: 'ChangeAvatar',
+        component: ChangeAvatar,
         meta: { requiresAuth: true }
       },
       {

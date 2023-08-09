@@ -122,7 +122,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function getUserPhoto(): ?string
     {
-        return $this->user_photo;
+        return asset($this->user_photo);
     }
 
     public function getOnline(): int

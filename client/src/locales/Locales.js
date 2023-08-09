@@ -353,6 +353,12 @@ export default {
       save: 'Save',
       forgotPassword: 'Forgot your password?'
     },
+    changeAvatar: {
+      changeAvatar: 'Change avatar',
+      chooseAvatar: 'Choose avatar',
+      avatarChanged: 'Avatar changed',
+      saveAvatar: 'Save',
+    },
     financesPage: {
       finance: 'Finance',
       allOperations: 'All Operations',

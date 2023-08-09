@@ -99,7 +99,7 @@ class UserController extends ApiController
         return $this->successResponse($presenter);
     }
 
-    public function changeUserAvatar(
+    public function changeAvatar(
         ChangeUserAvatarAction $changeUserDataAction,
         UserArrayPresenter $userArrayPresenter,
         UserChangeUserAvatarValidatorRequest $request

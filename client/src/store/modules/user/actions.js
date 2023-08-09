@@ -2,6 +2,7 @@ import * as actions from './types/actions';
 import * as mutations from './types/mutations';
 import UserService from '@/services/user-service/UserService';
 import * as notificationActions from '@/store/modules/notification/types/actions';
+import {SET_SUCCESS_NOTIFICATION} from "../notification/types/actions";
 
 export default {
   [actions.GET_USERS]: async ({ commit, dispatch }) => {
@@ -36,9 +37,28 @@ export default {
       await UserService.changePassword(data);
     } catch (error) {
       dispatch(
-        'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
-        error,
-        { root: true }
+          'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
+          error,
+          { root: true }
+      );
+    }
+  },
+  [actions.CHANGE_USER_AVATAR]: async ({ commit, dispatch }, image) => {
+    try {
+      const formData = new FormData();
+      formData.append('image', image, image.name);
+      await UserService.changeAvatar(formData);
+
+      dispatch(
+          'notification/' + notificationActions.SET_SUCCESS_NOTIFICATION,
+          'Avatar successfully changed',
+          { root: true }
+      );
+    } catch (error) {
+      dispatch(
+          'notification/' + notificationActions.SET_ERROR_NOTIFICATION,
+          error,
+          { root: true }
       );
     }
   },

@@ -13,8 +13,16 @@ const userService = {
   },
   async changePassword(data) {
     const response = await requestService.patch(
-      '/users/change-password/',
-      data
+        '/users/change-password/',
+        data
+    );
+
+    return response?.data?.data;
+  },
+  async changeAvatar(data) {
+    const response = await requestService.post(
+        '/users/change-avatar',
+        data
     );
 
     return response?.data?.data;

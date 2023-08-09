@@ -9,7 +9,7 @@ class UserChangeUserAvatarValidatorRequest extends ApiFormRequest
     public function rules(): array
     {
         return [
-            'image' => 'required'
+            'image' => 'required|image|max:5120'
         ];
     }
 }

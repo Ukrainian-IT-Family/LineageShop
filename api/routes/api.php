@@ -172,7 +172,6 @@ Route::group(
             Route::get('/users', [UserController::class, 'getAllUsers']);
             Route::patch('/users/admin-reset-user-password', [UserController::class, 'adminResetUserPassword']);
             Route::patch('/change-user-data', [UserController::class, 'changeUserData']);
-            Route::post('/change-user-avatar', [UserController::class, 'changeUserAvatar']);
             Route::get('/orders', [OrderController::class, 'getAllOrders']);
             Route::patch('/orders/change-order-status', [OrderController::class, 'changeOrderStatus']);
             Route::patch('/change-password', [UserController::class, 'changePassword']);
@@ -203,6 +202,7 @@ Route::middleware('AuthorizationChecker')->group(function () {
     Route::post('/send-support-request-message', [SupportRequestController::class, 'sendSupportRequestMessage']);
     Route::patch('/support-request/status-update', [SupportRequestController::class, 'updateSupportStatusRequest']);
     Route::patch('/users/change-password', [UserController::class, 'changePassword']);
+    Route::post('/users/change-avatar', [UserController::class, 'changeAvatar']);
 });
 Route::get('/status/{serviceName?}', [StatusController::class, 'status']);
 
