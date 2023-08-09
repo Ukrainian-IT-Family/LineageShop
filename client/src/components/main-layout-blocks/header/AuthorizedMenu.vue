@@ -15,7 +15,7 @@
     <BNavItemDropdown right>
       <template #button-content>
         <div class="user-link-photo">
-          <img alt="" src="@/assets/default-avatar.jpeg" />
+          <img alt="" :src="authUser.userPhoto" />
         </div>
       </template>
       <BDropdownItem :to="{ name: 'UserSelfProfile' }">
@@ -33,8 +33,9 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import {mapActions, mapGetters} from 'vuex';
 import * as authActions from '@/store/modules/auth/types/actions';
+import * as authGetters from '@/store/modules/auth/types/getters';
 import * as notificationActions from '@/store/modules/notification/types/actions';
 
 export default {
@@ -43,6 +44,11 @@ export default {
     user: {
       login: String
     }
+  },
+  computed: {
+    ...mapGetters('AuthService', {
+      authUser: authGetters.GET_LOGGED_USER
+    })
   },
   methods: {
     ...mapActions('AuthService', {

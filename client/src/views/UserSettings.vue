@@ -16,7 +16,10 @@
               ></AvatarComponent>
             </div>
             <div class="ml-5 d-flex flex-column w-50">
-              <RouterLink to="#" class="text-dark text-decoration-none">
+              <RouterLink
+                  :to="{ name: 'ChangeAvatar' }"
+                  class="text-dark text-decoration-none"
+              >
                 <BButton
                   variant="light"
                   class="pl-4 pr-4 mb-2 font-weight-bold shadow-none profile-link"
