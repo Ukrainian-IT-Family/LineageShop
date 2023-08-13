@@ -83,7 +83,7 @@ export default {
   },
   computed: {
     getSelectedRating() {
-      return this.selectedRating ? this.selectedRating : 'Все отзывы';
+      return this.selectedRating ? this.selectedRating : this.$t('fullUserRating.addReviews');
     },
     getCountAllUserRatings() {
       return Vue.getCountAllUserRatings(this.userRatings);

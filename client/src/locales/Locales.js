@@ -91,7 +91,7 @@ export default {
       reviews: 'reviews',
       writeToTheSeller: 'Write to the seller',
       beforePayment: 'before payment',
-      title: 'FunPay',
+      title: 'L-Shop',
       alerts: 'alerts',
       text:
         "Dear sellers, <strong>Don't trust the chat messages!</strong> Before placing an order, <strong>always check for payment</strong> in the ",
@@ -157,7 +157,7 @@ export default {
       to: 'to'
     },
     mainLayoutBlocks: {
-      copy: '© 2015–2021 FunPay',
+      copy: '© 2015–2021 L-Shop',
       submitAnInquiry: 'Submit request',
       developed: 'DEVELOPED',
       purchases: 'Purchases',
@@ -467,6 +467,9 @@ export default {
       cardType: 'Card type',
       card: 'Card',
       add: 'Add'
+    },
+    fullUserRating: {
+      addReviews: 'All reviews'
     }
   },
 };

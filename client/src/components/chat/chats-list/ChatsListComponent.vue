@@ -5,7 +5,7 @@
     <!--        <BAvatar class="mr-3"></BAvatar>-->
     <!--        <div>-->
     <!--          <strong>Nickname</strong>-->
-    <!--          <div class="text-secondary">Ссори не тут</div>-->
+    <!--          <div class="text-secondary">Not here</div>-->
     <!--        </div>-->
     <!--      </div>-->
     <!--      <div>24.01</div>-->
