@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use App\Mail\BindEmail;
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 class BindEmailNotification extends Notification
@@ -26,9 +27,9 @@ class BindEmailNotification extends Notification
         return ['mail'];
     }
 
-    public function toMail(): BindEmail
+    public function toMail(): MailMessage
     {
-        return new BindEmail($this->verifyRoute(), $this->email);
+        return (new BindEmail($this->verifyRoute(), $this->email))->build();
     }
 
     protected function verifyRoute(): string

@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -28,7 +29,8 @@ class BindEmail extends Mailable implements ShouldQueue
         $this->to($this->email);
         $verifyRoute = $this->verifyRoute;
 
-        return $this->subject('Email change request')
-            ->view('emails.change-email', compact('verifyRoute'));
+        return (new MailMessage())
+            ->subject('Email change request')
+            ->action('Click to confirm email change', $verifyRoute);
     }
 }
