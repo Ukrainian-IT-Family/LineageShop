@@ -65,7 +65,7 @@ class Message extends Model
 
     public function sendNewMessageNotification(Message $message)
     {
-        $this->notify(new NewMessageNotification($message));
+        $notifyUser = $this->chat->getRecipientUser()->first();
+        $notifyUser->notify(new NewMessageNotification($message));
     }
-
 }

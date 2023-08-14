@@ -5,6 +5,7 @@ namespace App\Mail;
 use App\Models\Message;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -23,15 +24,12 @@ class NewMessageEmail extends Mailable implements ShouldQueue
     /**
      * Build the message.
      *
-     * @return $this
+     * @return MailMessage
      */
     public function build()
     {
-        $userEmail = $this->message->chat->getEmailToSendNotificationAboutNewMessage();
-
-        $this->to($userEmail);
-
-        return $this->subject('You have a new message!')
-            ->view('emails.new-message');
+        return (new MailMessage())
+            ->subject('You have a new message!')
+            ->line('You have a new message!');
     }
 }

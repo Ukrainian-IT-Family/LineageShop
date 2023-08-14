@@ -25,7 +25,7 @@ class NewMessageNotification extends Notification
 
     public function toMail($notifiable)
     {
-        return new NewMessageEmail($this->message);
+        return (new NewMessageEmail($this->message))->build();
     }
 
     public function toArray($notifiable)
