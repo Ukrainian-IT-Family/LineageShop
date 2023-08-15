@@ -1,10 +1,7 @@
 <template>
   <BContainer>
     <TitleComponent>{{ $t('userWallets.wallets') }}</TitleComponent>
-    <div v-if="userWalletsIsEmpty && !loading">{{ $t('userWallets.noWallets') }}</div>
-    <div v-else-if="loading" class="d-flex justify-content-center">
-      <Loading/>
-    </div>
+    <div v-if="userWalletsIsEmpty">{{ $t('userWallets.noWallets') }}</div>
     <div v-else>
     <BCol cols="12" class="pt-3">
       <BTableSimple>
@@ -50,12 +47,10 @@ import * as walletTypesActions from '@/store/modules/wallet-type/types/actions';
 import * as notificationActions from '@/store/modules/notification/types/actions';
 import {mapActions, mapGetters, mapState} from 'vuex';
 import _ from 'lodash';
-import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'UserWallets',
   components: {
-    Loading,
     TitleComponent,
     UserWalletRowComponent,
     ModalAddUserWalletComponent
@@ -66,9 +61,6 @@ export default {
     }),
     ...mapGetters('WalletType', {
       walletTypes: walletTypesGetters.GET_WALLET_TYPES
-    }),
-    ...mapState({
-      loading: (state) => state.UserWallet.loading,
     }),
     optionsUserWallets() {
       let optionsUserWallet = [{ value: null, text: '' }];

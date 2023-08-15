@@ -17,9 +17,16 @@ import UserRating from './modules/user-rating';
 import SupportRequest from './modules/support-request';
 import Faq from './modules/faq';
 
+import state from './state';
+import mutations from './mutations';
+import getters from './getters';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  state,
+  mutations,
+  getters,
   modules: {
     StatusService,
     AuthService,

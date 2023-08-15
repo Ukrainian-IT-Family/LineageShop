@@ -56,10 +56,7 @@
         </BCol>
       </BRow>
     </BContainer>
-    <div v-if="loading || !Object.keys(getLoggedUser).length" class="d-flex justify-content-center">
-      <Loading/>
-    </div>
-    <BContainer v-else>
+    <BContainer>
       <BRow>
         <BCol cols="12">
           <UserOfferListComponent></UserOfferListComponent>
@@ -90,12 +87,10 @@ import * as notificationActions from '@/store/modules/notification/types/actions
 import * as authGetters from '@/store/modules/auth/types/getters';
 import {mapActions, mapGetters, mapState} from 'vuex';
 import AuthService from '@/store/modules/auth';
-import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'UserProfile',
   components: {
-    Loading,
     UserOfferListComponent,
     UserRatingComponent,
     RatingAndReviewsComponent,
@@ -108,9 +103,6 @@ export default {
     ...mapGetters('UserRating', {
       userRatings: userRatingGetters.GET_USER_RATINGS_BY_USER
     }),
-    ...mapState({
-      loading: (state) => state.UserRating.loading,
-    })
   },
   methods: {
     ...mapActions('UserRating', {

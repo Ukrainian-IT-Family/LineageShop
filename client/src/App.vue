@@ -6,6 +6,7 @@
       <RouterView />
     </BContainer>
     <FooterComponent></FooterComponent>
+    <Loading v-if="isLoading" />
   </div>
 </template>
 
@@ -17,7 +18,17 @@
 import HeaderComponent from '@/components/main-layout-blocks/header/HeaderComponent';
 import FooterComponent from '@/components/main-layout-blocks/footer/FooterComponent';
 import NotificationsComponent from '@/components/notification/NotificationsComponent';
+import Loading from '@/components/common/Loading.vue';
+import { mapGetters } from 'vuex';;
 export default {
-  components: { NotificationsComponent, FooterComponent, HeaderComponent }
+  components: { NotificationsComponent, FooterComponent, HeaderComponent, Loading },
+  computed: {
+    ...mapGetters([
+      'isLoading',
+    ])
+  },
+  mounted() {
+    console.log(this.isLoading);
+  }
 };
 </script>

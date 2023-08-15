@@ -15,7 +15,7 @@ import {mapActions, mapGetters} from 'vuex';
 import * as categoryGetters from '@/store/modules/category/types/getters';
 import * as categoryActions from '@/store/modules/category/types/actions';
 import * as notificationActions from '@/store/modules/notification/types/actions';
-import Loading from '@/components/common/Loading.vue';
+
 export default {
   name: 'Index',
   components: {ProductListComponent, CategoryComponent },

@@ -44,10 +44,7 @@
         </BCol>
       </BRow>
     </BContainer>
-    <div v-if="loading" class="d-flex justify-content-center">
-      <Loading/>
-    </div>
-    <div v-else class="mt-3 pt-5 pb-5">
+    <div class="mt-3 pt-5 pb-5">
       <BContainer>
         <BRow>
           <BCol cols="12" md="7">
@@ -96,12 +93,10 @@ import * as chatGetters from '@/store/modules/chat/types/getters';
 import * as chatActions from '@/store/modules/chat/types/actions';
 import {mapActions, mapGetters, mapState} from 'vuex';
 import _ from 'lodash';
-import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'UserProfile',
   components: {
-    Loading,
     UserOfferListComponent,
     RatingAndReviewsComponent,
     ChatComponent,
@@ -117,9 +112,6 @@ export default {
     }),
     ...mapGetters('chat', {
       chat: chatGetters.GET_CHAT
-    }),
-    ...mapState({
-      loading: (state) => state.User.loading,
     }),
     userId() {
       return Number(_.get(this.$route, 'params.id', null));

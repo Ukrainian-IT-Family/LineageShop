@@ -1,10 +1,7 @@
 <template>
   <div>
     <TitleComponent>{{ $t('views.faq') }}</TitleComponent>
-    <div v-if="loading" class="d-flex justify-content-center">
-      <Loading/>
-    </div>
-    <div v-else>
+    <div>
       <div>
         <div class="exp-content">
           <div class="exp-content__edit">
@@ -36,7 +33,6 @@ export default {
     id: integer
   },
   components: {
-    Loading,
     TitleComponent
   },
   computed: {

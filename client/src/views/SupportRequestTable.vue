@@ -61,9 +61,6 @@
       :supports="supports(orderType, orderDirection)"
       @orderType="setOrderType"
     />
-    <div v-else-if="loading && !isSetSupports" class="d-flex justify-content-center">
-      <Loading/>
-    </div>
     <EmptyTableComponent v-else>{{
       $t('supportRequestTable.records')
     }}</EmptyTableComponent>
@@ -79,12 +76,10 @@ import * as SupportActions from '@/store/modules/support-request/types/actions';
 import * as notificationActions from '@/store/modules/notification/types/actions';
 import {mapActions, mapGetters, mapState} from 'vuex';
 import _ from 'lodash';
-import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'SupportRequestTable',
   components: {
-    Loading,
     SupportTable,
     EmptyTableComponent
   },
@@ -104,9 +99,6 @@ export default {
     }),
     ...mapGetters('AuthService', {
       getLoggedUser: AuthGetters.GET_LOGGED_USER
-    }),
-    ...mapState({
-      loading: (state) => state.SupportRequest.loading,
     }),
     isSetSupports() {
       return !_.isEmpty(this.supports(this.orderType, this.orderDirection));

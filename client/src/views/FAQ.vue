@@ -1,10 +1,7 @@
 <template>
   <div>
     <TitleComponent>FAQ</TitleComponent>
-    <div v-if="loading" class="d-flex justify-content-center">
-      <Loading/>
-    </div>
-    <div v-else>
+    <div>
       <div>
         <div class="exp-content">
           <div class="exp-content__edit">
@@ -40,7 +37,6 @@ import Loading from '@/components/common/Loading.vue';
 export default {
   name: 'FaqComponent',
   components: {
-    Loading,
     TitleComponent
   },
   data() {

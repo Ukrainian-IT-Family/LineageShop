@@ -1,10 +1,8 @@
 import * as mutations from './types/mutations';
 import { financeOperationsMapper } from './normalizer';
 import { financeOperationMapper } from './normalizer';
-import loading from '@/store/mixins/loading';
 
 export default {
-  [mutations.SET_LOADING]: loading.mutations.setLoading,
   [mutations.SET_FINANCE_OPERATION]: (state, financeOperation) => {
     state.financeOperation = financeOperationMapper(financeOperation);
   },

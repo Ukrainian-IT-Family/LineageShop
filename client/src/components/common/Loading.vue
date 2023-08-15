@@ -1,12 +1,14 @@
 <template>
-  <div
-      class="modal d-block bg-white-transparent"
-      tabindex="-1"
-      role="dialog"
-  >
-    <div class="mx-auto-center" role="document">
-      <div class="spinner-border" style="width: 8rem; height: 8rem;" role="status">
-        <span class="sr-only">Loading</span>
+  <div class="d-flex justify-content-center">
+    <div
+        class="modal d-block bg-white-transparent"
+        tabindex="-1"
+        role="dialog"
+    >
+      <div class="mx-auto-center" role="document">
+        <div class="spinner-border" style="width: 8rem; height: 8rem;" role="status">
+          <span class="sr-only">Loading</span>
+        </div>
       </div>
     </div>
   </div>

@@ -43,9 +43,6 @@
       </BCol>
     </BRow>
     <FinanceOperationEmptyPageComponent v-if="isEmptyFinanceOperation" />
-    <div v-else-if="loading && isEmptyFinanceOperation" class="d-flex justify-content-center">
-      <Loading/>
-    </div>
     <FinanceListComponent
       :financeOperations="financeOperations(orderType, orderDirection)"
     />
@@ -61,12 +58,10 @@ import * as financeOperationsActions from '@/store/modules/finance-operation/typ
 import * as notificationActions from '@/store/modules/notification/types/actions';
 import {mapActions, mapGetters, mapState} from 'vuex';
 import _ from 'lodash';
-import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'Finances',
   components: {
-    Loading,
     FinanceListComponent,
     ModalFormComponent,
     FinanceOperationEmptyPageComponent
@@ -86,9 +81,6 @@ export default {
     ...mapGetters('FinanceOperation', {
       financeOperations: financeOperationsGetters.GET_FINANCE_OPERATIONS
     }),
-    ...mapState({
-      loading: (state) => state.FinanceOperation.loading,
-    })
   },
   methods: {
     ...mapActions('FinanceOperation', {

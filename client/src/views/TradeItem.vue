@@ -99,9 +99,6 @@ export default {
     ...mapGetters('Product', {
       productForEdit: productGetters.GET_PRODUCT
     }),
-    ...mapState({
-      loading: (state) => state.Product.loading,
-    })
   },
   methods: {
     ...mapActions('Category', {
