@@ -15,7 +15,8 @@
     <BNavItemDropdown right>
       <template #button-content>
         <div class="user-link-photo">
-          <img alt="" :src="authUser.userPhoto" />
+          <img alt="" v-if="authUser.userPhoto" :src="authUser.userPhoto" />
+          <img alt="" v-else src="@/assets/default-avatar.jpeg" />
         </div>
       </template>
       <BDropdownItem :to="{ name: 'UserSelfProfile' }">
