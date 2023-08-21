@@ -24,19 +24,6 @@
           {{ user.login }}
         </RouterLink>
       </BRow>
-      <BRow
-        class="seller-reviews seller-reviews-cool d-flex align-items-center fa-xs"
-      >
-        <FontAwesomeIcon :icon="['fas', 'star']" size="xs" />
-        <FontAwesomeIcon :icon="['fas', 'star']" size="xs" />
-        <FontAwesomeIcon :icon="['fas', 'star']" size="xs" />
-        <FontAwesomeIcon :icon="['fas', 'star']" size="xs" />
-        <FontAwesomeIcon :icon="['fas', 'star']" size="xs" />
-        <span class="rating-count text-secondary ml-1">23</span>
-      </BRow>
-      <BRow class="seller-info font-weight-bold text-secondary fa-xs">{{
-        $t('productList.onSite')
-      }}</BRow>
     </BCol>
   </BRow>
 </template>
