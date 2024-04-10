@@ -17,10 +17,10 @@ Just keep versions of installed software to be consistent with the team and prod
 ```bash
 cp .env.example .env
 docker-compose up -d
-docker-compose exec app composer install   
-docker-compose exec app php artisan key:generate
-docker-compose exec app php artisan jwt:secret
-docker-compose exec app php artisan migrate:fresh --seed
+docker exec -it laravel-app composer install   
+docker exec -it laravel-app php artisan key:generate
+docker exec -it laravel-app php artisan jwt:secret
+docker exec -it laravel-app php artisan migrate:fresh --seed
 ```
 
 For work Laravel 
