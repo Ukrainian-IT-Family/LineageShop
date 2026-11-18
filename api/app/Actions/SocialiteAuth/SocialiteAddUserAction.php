@@ -7,6 +7,8 @@ use Laravel\Socialite\Facades\Socialite;
 
 final class SocialiteAddUserAction
 {
+    private UserRepositoryInterface $userRepositoryInterface;
+
     public function __construct(UserRepositoryInterface $userRepositoryInterface)
     {
         $this->userRepositoryInterface = $userRepositoryInterface;

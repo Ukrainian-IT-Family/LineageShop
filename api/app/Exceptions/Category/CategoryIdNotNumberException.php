@@ -11,7 +11,7 @@ final class CategoryIdNotNumberException extends BaseException
     public function __construct(
         $message = 'Category id must be a number',
         $code = 404,
-        Throwable $previous = null
+        ?Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
     }

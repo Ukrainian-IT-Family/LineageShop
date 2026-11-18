@@ -9,7 +9,7 @@ use App\Exceptions\BaseException;
 
 final class FinanceOperationCannotBeCanceledException extends BaseException
 {
-    public function __construct($message = 'Finance operation cannot by canceled', $code = 404, Throwable $previous = null)
+    public function __construct($message = 'Finance operation cannot by canceled', $code = 404, ?Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
