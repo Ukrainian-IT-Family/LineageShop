@@ -5,7 +5,7 @@ $finder = PhpCsFixer\Finder::create()
     ->notPath('*')
     ->in(__DIR__);
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
         '@PSR2' => true,
@@ -13,7 +13,7 @@ return PhpCsFixer\Config::create()
         'binary_operator_spaces' => true,
         'blank_line_after_namespace' => true,
         'blank_line_after_opening_tag' => true,
-        'blank_line_before_return' => true,
+        'blank_line_before_statement' => ['statements' => ['return']],
         'braces' => true,
         'cast_spaces' => true,
         'class_attributes_separation' => true,
@@ -31,7 +31,7 @@ return PhpCsFixer\Config::create()
         'linebreak_after_opening_tag' => true,
         'list_syntax' => ['syntax' => 'short'],
         'lowercase_cast' => true,
-        'lowercase_constants' => true,
+        'constant_case' => ['case' => 'lower'],
         'lowercase_keywords' => true,
         'lowercase_static_reference' => true,
         'magic_constant_casing' => true,
@@ -70,7 +70,9 @@ return PhpCsFixer\Config::create()
         'php_unit_fqcn_annotation' => true,
         'phpdoc_align' => ['align' => 'vertical'],
         'phpdoc_indent' => true,
-        'phpdoc_inline_tag' => true,
+        'general_phpdoc_tag_rename' => true,
+        'phpdoc_inline_tag_normalizer' => true,
+        'phpdoc_tag_type' => true,
         'phpdoc_no_access' => true,
         'phpdoc_no_package' => true,
         'phpdoc_no_useless_inheritdoc' => true,
@@ -83,7 +85,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_trim' => true,
         'phpdoc_types' => true,
         'phpdoc_var_without_name' => true,
-        'psr4' => true,
+        'psr_autoloading' => true,
         'self_accessor' => true,
         'short_scalar_cast' => true,
         'simplified_null_return' => true,
@@ -98,7 +100,7 @@ return PhpCsFixer\Config::create()
         'switch_case_semicolon_to_colon' => true,
         'switch_case_space' => true,
         'ternary_operator_spaces' => true,
-        'trailing_comma_in_multiline_array' => true,
+        'trailing_comma_in_multiline' => ['elements' => ['arrays']],
         'trim_array_spaces' => true,
         'unary_operator_spaces' => false,
         'visibility_required' => true,

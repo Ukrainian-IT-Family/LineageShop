@@ -18,4 +18,4 @@ _ide_helper.php
 .phpstorm.meta.php
 xdebug.log
 _ide_helper_models.php
-.php_cs.cache
+.php-cs-fixer.cache

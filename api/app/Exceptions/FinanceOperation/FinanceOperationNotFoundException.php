@@ -9,7 +9,7 @@ use App\Exceptions\BaseException;
 
 final class FinanceOperationNotFoundException extends BaseException
 {
-    public function __construct($message = 'Finance operation not found', $code = 404, Throwable $previous = null)
+    public function __construct($message = 'Finance operation not found', $code = 404, ?Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
