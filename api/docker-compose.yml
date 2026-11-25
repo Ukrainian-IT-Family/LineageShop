@@ -1,4 +1,5 @@
-version: "3.7"
+name: lineage
+
 services:
   lin-app:
     build:
@@ -34,6 +35,7 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
+      - lin-dbdata:/var/lib/mysql
       - ./Docker/mysql/my.cnf:/etc/mysql/my.cnf
       - ./Docker/mysql/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
     networks:
@@ -65,3 +67,6 @@ services:
 networks:
   lineage:
     name: lineage
+
+volumes:
+  lin-dbdata:
