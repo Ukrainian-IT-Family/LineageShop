@@ -25,7 +25,7 @@ services:
     container_name: laravel-db
     restart: unless-stopped
     ports:
-      - "3306"
+      - "127.0.0.1:38061:3306"
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -53,7 +53,7 @@ services:
     image: schickling/beanstalkd:latest
     container_name: laravel-beanstalk
     ports:
-      - 11300
+      - "127.0.0.1:11300:11300"
     networks:
       - lineage
   lin-redis:
