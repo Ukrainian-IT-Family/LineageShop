@@ -9,7 +9,7 @@ use App\Exceptions\BaseException;
 
 final class NotEnoughMoneyException extends BaseException
 {
-    public function __construct($message = 'Not enough money', $code = 400, Throwable $previous = null)
+    public function __construct($message = 'Not enough money', $code = 400, ?Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }

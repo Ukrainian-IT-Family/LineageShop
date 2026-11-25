@@ -9,7 +9,7 @@ use App\Exceptions\BaseException;
 
 final class AuthorizationRequiredException extends BaseException
 {
-    public function __construct($message = 'Authorization required', $code = 422, Throwable $previous = null)
+    public function __construct($message = 'Authorization required', $code = 422, ?Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }

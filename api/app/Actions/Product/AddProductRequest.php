@@ -39,9 +39,9 @@ final class AddProductRequest
     public function __construct(
         ?string $name = null,
         ?string $description = null,
-        int $categoryId = null,
-        float $price = null,
-        int $active = null,
+        ?int $categoryId = null,
+        ?float $price = null,
+        ?int $active = null,
         ?int $availability = null,
         ?int $equipmentId = null,
         ?int $level = null,
